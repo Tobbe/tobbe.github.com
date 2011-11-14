@@ -1,0 +1,402 @@
+<html>
+<head>
+	<title>Tetris</title>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.min.js"></script>
+	<script type="text/javascript">
+		function set() {};
+		set.prototype.push = function(element) {
+			this[element + ''] = true;
+		};
+
+		set.prototype.forEach = function(fn) {
+			for (var k in this) {
+				if (this.hasOwnProperty(k)) {
+					fn(k);
+				}
+			}
+		};
+
+		var playingField = new Array(18);
+		for (var i = 0; i < 18; i++) {
+			playingField[i] = new Array(25);
+			for (var j = 0; j < 25; j++) {
+				if (i == 0 || i == 1 || i == 2 || i == 3) {
+					playingField[i][j] = 1;
+				} else if (i == 14 || i == 15 || i == 16 || i == 17) {
+					playingField[i][j] = 1;
+				} else if (j == 24) {
+					playingField[i][j] = 1;
+				} else {
+					playingField[i][j] = 0;
+				}
+			}
+		}
+
+		var I = [[0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
+			     [0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0],
+			     [0, 2, 0, 0, 2, 2, 2, 2, 0, 2, 0, 0, 2, 2, 2, 2],
+				 [0, 2, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0]];
+
+		var J = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			     [0, 0, 3, 0, 3, 3, 3, 0, 0, 3, 3, 0, 3, 0, 0, 0],
+				 [0, 0, 3, 0, 0, 0, 3, 0, 0, 3, 0, 0, 3, 3, 3, 0],
+				 [0, 3, 3, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0]];
+
+		var L = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			     [0, 4, 0, 0, 0, 0, 4, 0, 0, 4, 4, 0, 4, 4, 4, 0],
+				 [0, 4, 0, 0, 4, 4, 4, 0, 0, 0, 4, 0, 4, 0, 0, 0],
+				 [0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0]];
+
+		var O = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			     [0, 5, 5, 0, 0, 5, 5, 0, 0, 5, 5, 0, 0, 5, 5, 0],
+			     [0, 5, 5, 0, 0, 5, 5, 0, 0, 5, 5, 0, 0, 5, 5, 0],
+			     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+
+		var S = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			     [0, 6, 6, 0, 0, 6, 0, 0, 0, 6, 6, 0, 0, 6, 0, 0],
+			     [6, 6, 0, 0, 0, 6, 6, 0, 6, 6, 0, 0, 0, 6, 6, 0],
+			     [0, 0, 0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 6, 0]];
+
+		var T = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			     [0, 0, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0],
+			     [7, 7, 7, 0, 7, 7, 0, 0, 7, 7, 7, 0, 0, 7, 7, 0],
+			     [0, 7, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0]];
+
+		var Z = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+			     [8, 8, 0, 0, 0, 8, 0, 0, 8, 8, 0, 0, 0, 8, 0, 0],
+			     [0, 8, 8, 0, 8, 8, 0, 0, 0, 8, 8, 0, 8, 8, 0, 0],
+			     [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 0]];
+
+		var pieces = [I, J, L, O, S, T, Z];
+
+		var currentPiece = selectNewPiece();
+		var line = 0;
+		var newLine = 0;
+		var left = 8;
+		var newLeft = 8;
+		var modifiedLines = new set();
+		var rotation = 0;
+		var newRotation = 0;
+
+		var updateCount = 0;
+
+		function updateState() {
+			updateCount++;
+			modifiedLines = new set();
+
+			if (newRotation != rotation) {
+				rotatePiece();
+			}
+
+			if (newLeft != left) {
+				movePieceHorizontally();
+			}
+
+			if (updateCount == 30) {
+				updateCount = 0;
+
+				if (line == newLine) {
+					newLine++;
+				}
+			}
+
+			if (newLine != line) {
+				lowerPiece();
+			}
+		}
+
+		function collide(newLine, newLeft, newRotation) {
+			for (var i = newLeft; i < newLeft + 4; ++i) {
+				var pieceX = i - newLeft;
+				var rowSum = 0;
+				for (var j = newLine; j < newLine + 4; ++j) {
+					var pieceY = j - newLine;
+
+					var pieceValue = pieces[currentPiece][pieceY][newRotation * 4 + pieceX];
+					if (pieceValue * playingField[Math.max(0, i)][j] != 0) {
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
+
+		function eraseCurrentPiece() {
+			for (var i = left; i < left + 4; ++i) {
+				var pieceX = i - left;
+				var rowSum = 0;
+				for (var j = line; j < line + 4; ++j) {
+					var pieceY = j - line;
+
+					if (pieces[currentPiece][pieceY][rotation * 4 + pieceX] != 0) {
+						playingField[i][j] = 0;
+					}
+				}
+			}
+		}
+
+		function drawCurrentPiece() {
+			for (var i = left; i < left + 4; ++i) {
+				var pieceX = i - left;
+				var rowSum = 0;
+				for (var j = line; j < line + 4; ++j) {
+					var pieceY = j - line;
+
+					var pieceValue = pieces[currentPiece][pieceY][rotation * 4 + pieceX];
+					if (pieceValue != 0) {
+						var pfV = playingField[i][j];
+						playingField[i][j] = pieceValue;
+					}
+				}
+			}
+		}
+
+		function lowerPiece() {
+			eraseCurrentPiece();
+			if (!collide(newLine, left, rotation)) {
+				line = newLine;
+
+				modifiedLines.push(line - 1);
+				modifiedLines.push(line);
+				modifiedLines.push(line + 1);
+				modifiedLines.push(line + 2);
+				modifiedLines.push(line + 3);
+			} else {
+				drawCurrentPiece();
+
+				for (var y = 23; y > 3; --y) {
+					var lineAbove = [];
+					var fullLine = true;
+					modifiedLines.push(y);
+					for (var x = 4; x < 14; ++x) {
+						lineAbove.push(playingField[x][y - 1]);
+
+						if (playingField[x][y] == 0) {
+							fullLine = false;
+							break;
+						}
+					}
+
+					if (fullLine) {
+						/*for (var x = 4; x < 14; ++x) {
+							playingField[x][y] = lineAbove[x];
+						}*/
+
+						for (var x = 4; x < 14; ++x) {
+							for (var y2 = y; y2 > 3; --y2) {
+								playingField[x][y2] = playingField[x][y2 - 1];
+							}
+						}
+
+						y++;
+					}
+				}
+
+
+				/*var removedLines = [];
+				for (var y = line; y - line < 5 && y < 24; ++y) {
+					var fullLine = true;
+					for (var j = 4; j < 17; ++j) {
+						if (playingField[j][y] == 0) {
+							fullLine = false;
+							break;
+						}
+					}
+
+					if (fullLine) {
+						removedLines.push(y);
+					}
+				}
+
+				if (removedLines.length > 0) {
+					var offset = 0;
+					for (var y = removedLines[removedLines.length - 1]; y > 2; --y) {
+						if (y == removedLines[removedLines.length - 1]) {
+							removedLines.pop();
+							offset++;
+							removedLines = removedLines.map(function (e) {
+								return ++e;
+							});
+						}
+
+						var lineSum = 0;
+						for (var x = 4; x < 14; ++x) {
+							lineSum += playingField[x][y];
+							playingField[x][y] = playingField[x][y - offset];
+						}
+
+						if (lineSum == 0) {
+							//break;
+						}
+
+						modifiedLines.push(y);
+
+						if (y == removedLines[removedLines.length - 1]) {
+							y++; //Need to process the same line again, in case the line above it was also completed
+						}
+					}
+				}*/
+				line = newLine = 0;
+				left = newLeft = 8;
+				rotation = newRotation = 0;
+				currentPiece = selectNewPiece();
+			}
+			drawCurrentPiece();
+		}
+
+		function movePieceHorizontally() {
+			eraseCurrentPiece();
+			if (!collide(line, newLeft, rotation)) {
+				left = newLeft;
+				modifiedLines.push(line);
+				modifiedLines.push(line + 1);
+				modifiedLines.push(line + 2);
+				modifiedLines.push(line + 3);
+			} else {
+				newLeft = left;
+			}
+			drawCurrentPiece();
+		}
+
+		function rotatePiece() {
+			eraseCurrentPiece();
+			if (!collide(line, left, newRotation)) {
+				rotation = newRotation;
+				modifiedLines.push(line);
+				modifiedLines.push(line + 1);
+				modifiedLines.push(line + 2);
+				modifiedLines.push(line + 3);
+			} else {
+				newRotation = rotation;
+			}
+			drawCurrentPiece();
+		}
+
+		function gameOver() {
+			eraseCurrentPiece();
+			for (var i = 4; i < 14; ++i) {
+				if (playingField[i][4] != 0) {
+					return true;
+				}
+			}
+
+			return false;
+		}
+
+		function selectNewPiece() {
+			//return 0;
+			return Math.floor(Math.random() * 7);
+		}
+
+		$(document).ready(function() {
+			var pieceColors = ['#f00', '#088', '#00f', '#800', '#080', '#008', '#808'];
+
+			var domPlayingField = new Array(10);
+			for (var i = 0; i < 10; i++) {
+				domPlayingField[i] = new Array(20);
+				for (var j = 0; j < 20; j++) {
+					var domBlock = $('<div></div>');
+					domBlock.css('position', 'absolute');
+					domBlock.css('width', '20px');
+					domBlock.css('height', '20px');
+					domBlock.css('left', (20*(i + 1)) + 'px');
+					domBlock.css('top', (20*j) + 'px');
+					var pfValue = playingField[i + 4][j + 4];
+					domBlock.tetriVal = pfValue;
+					if (pfValue == 0) {
+						domBlock.css('background', '#ccc');
+					} else {
+						domBlock.css('background', pieceColors[pfValue - 2]);
+					}
+					domPlayingField[i][j] = domBlock;
+					$('#field').append(domBlock);
+				}
+			}
+
+			var statBox = $('<div></div>');
+			$('body').append(statBox);
+
+			$(document).on('keydown', function(event) {
+				if (event.which == 37) { //Left arrow key
+					if (left == newLeft) {
+						newLeft--;
+					}
+				} else if (event.which == 38) { //Up arrow key
+					if (rotation == newRotation) {
+						newRotation = (newRotation + 1) % 4;
+					}
+				} else if (event.which == 39) { //Right arrow key
+					if (left == newLeft) {
+						newLeft++;
+					}
+				} else if (event.which == 40) { //Down arrow key
+					if (line == newLine) {
+						newLine++;
+					}
+				}
+			});
+
+			function draw() {
+				/*modifiedLines = [];
+				for (var i = 4; i < 24; ++i) {
+					modifiedLines.push(i);
+				}*/
+
+				var redraws = 0;
+				modifiedLines.forEach(function(line) {
+					if (line < 4 || line > 23) {
+						return;
+					}
+
+					for (var i = 4; i < 14; i++) {
+						var pfValue = playingField[i][line];
+						if (pfValue != domPlayingField[i - 4][line - 4].tetriVal) {
+							domPlayingField[i - 4][line - 4].tetriVal = pfValue;
+							redraws++;
+							if (pfValue == 0) {
+								domPlayingField[i - 4][line - 4].css('background', '#ccc');
+							} else {
+								domPlayingField[i - 4][line - 4].css('background', pieceColors[pfValue - 2]);
+							}
+						}
+					}
+				});
+
+				//statBox.text(redraws);
+			}
+
+			var framecount = 0;
+
+			function gameLoop() {
+				var timeStart = new Date().getTime();
+
+				framecount++;
+
+				updateState();
+				draw();
+
+				if (!gameOver()) {
+					setTimeout(gameLoop, 16 - (new Date().getTime() - timeStart));
+				}
+
+			}
+			
+			setTimeout(gameLoop, 16);
+		});
+	</script>
+	<style>
+		#field {
+			border: 1px solid black;
+			width: 240px;
+			height: 420px;
+			position: absolute;
+			margin-top: -1px;
+			margin-left: -1px;
+		}
+	</style>
+</head>
+<body>
+	<div id="field"></div>
+</body>
+</html>
