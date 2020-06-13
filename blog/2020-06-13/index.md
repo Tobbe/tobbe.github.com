@@ -12,6 +12,6 @@ After having my old page, which was pretty much nothing, I found myself wanting 
 
 to what you see here right now. Quite the improvement, if I may say so myself!
 
-For nostalgias sake, I'll include that same link to tetris right here. [Play Tetris](https://tlundberg.com/tetris.html)
+For nostalgia's sake, I'll include that same link to Tetris right here. [Play Tetris](https://tlundberg.com/tetris.html)
 
 So, what should I do with this new blog of mine? The idea is like most every other blog on the Internet to just have a braindump. Whenever I find something interesting, or make something worth sharing, I will put it here. The first thing I want to share is how I got this page to where it is right now. So that will be my next blog post. Other ideas I have for the future is to write "addons" or "extensions" or whatever you want to call them, to the main [RedwoodJS tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood). Something that picks up where that tutorial ends.
