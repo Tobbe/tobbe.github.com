@@ -28,6 +28,7 @@ const Content = styled.div`
   z-index: 999;
   a {
     color: ${(props) => props.theme.colors.bg};
+
     &:hover {
       opacity: 0.85;
       color: ${(props) => props.theme.colors.bg};

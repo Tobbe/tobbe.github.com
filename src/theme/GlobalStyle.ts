@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
   a:hover {
     color: ${(props) => props.theme.colors.primary};
   }
-  p a {
+  p a, footer a {
     text-decoration: underline;
   }
   h1, h2, h3, h4 {
