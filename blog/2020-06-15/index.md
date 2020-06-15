@@ -8,6 +8,8 @@ banner: "/assets/bg/4.jpg"
 
 This guide will help you install rsync on Windows 10. It is assumed that you already have [Git for Windows](https://gitforwindows.org/) installed.
 
+![Screenshot of rsync running in PowerShell](/assets/rsync_windows.png "rsync screenshot")
+
 If you didn't already know, Git for Windows and its Git Bash environment is built using [msys2](http://msys2.org), but it doesn't include all the binaries from that project. One of the binaries that exists, but that isn't included, is rsync. So what we need to do is to download the msys2 rsync binary, and place it somewhere Git Bash can find it.
 
  1. Go to http://repo.msys2.org/msys/x86_64/ and download the latest version of rsync (not rsync2). At the time of this writing that is rsync-3.1.3-1-x86_64.pkg.tar.xz
