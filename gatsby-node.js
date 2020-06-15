@@ -1,15 +1,12 @@
 const path = require('path');
 const _ = require('lodash');
 const config = require('./config/SiteConfig').default;
+const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.onCreateNode = ({ node, actions }) => {
+exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (
-    node.internal.type === 'MarkdownRemark' &&
-    _.has(node, 'frontmatter') &&
-    _.has(node.frontmatter, 'title')
-  ) {
-    const slug = `${_.kebabCase(node.frontmatter.title)}`;
+  if (node.internal.type === 'MarkdownRemark') {
+    const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({ node, name: 'slug', value: slug });
   }
 };
@@ -149,10 +146,10 @@ exports.createPages = ({ actions, graphql }) => {
       const prev = index === posts.length - 1 ? null : posts[index + 1].node;
 
       createPage({
-        path: `/blog/${_.kebabCase(node.frontmatter.title)}`,
+        path: `/blog${node.fields.slug}`,
         component: postTemplate,
         context: {
-          slug: _.kebabCase(node.frontmatter.title),
+          slug: node.fields.slug,
           prev,
           next,
         },

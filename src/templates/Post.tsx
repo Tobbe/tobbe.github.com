@@ -32,6 +32,7 @@ interface Props {
 export default (props: Props) => {
   const { prev, next } = props.pathContext;
   const post = props.data.markdownRemark;
+
   return (
     <Layout>
       {post ? (
@@ -70,7 +71,7 @@ export default (props: Props) => {
   );
 };
 
-export const postQuery = graphql`
+export const query = graphql`
   query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
