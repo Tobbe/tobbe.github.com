@@ -61,7 +61,7 @@ export const BlogQuery = graphql`
           }
           frontmatter {
             title
-            date(formatString: "DD.MM.YYYY")
+            date(formatString: "YYYY-MM-DD")
             category
           }
           excerpt(pruneLength: 200)
