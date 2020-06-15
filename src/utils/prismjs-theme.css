@@ -47,6 +47,7 @@ pre[class*="language-"] {
   white-space: normal;
   background: #cccccc70;
   color: rgba(0, 0, 0, 0.7);
+  vertical-align: 2px;
 }
 
 .token.comment,
@@ -142,4 +143,8 @@ kbd {
   box-shadow: 0 1px 1px rgba(12,13,14,0.15),inset 0 1px 0 0 #fff;
   white-space: nowrap;
   vertical-align: text-bottom;
+}
+
+.nowrap {
+  white-space: nowrap;
 }
