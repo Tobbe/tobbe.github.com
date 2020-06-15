@@ -24,7 +24,7 @@ Create a new `.bat` file with the following content (adjust the path to match yo
 "C:\Program Files\Git\usr\bin\rsync.exe" %* 
 ```
 
-Name the file `rsync.bat` and place it somewhere in your %PATH%. I placed mine in `C:\Windows\`. Press <kbd>Win</kbd> + <kbd>r</kbd> and enter `cmd`. In the Command Prompt window that you just launched, enter `rsync --version` and it will find your `.bat`-file and run it, passing all arguments (that's what `%*` does in the command above) off to your newly installed rsync.exe
+Name the file `rsync.bat` and place it somewhere in your %PATH%. I placed mine in `C:\Windows\`. Press <kbd>Win</kbd> + <kbd>R</kbd> and enter `cmd`. In the Command Prompt window that you just launched, enter `rsync --version` and it will find your `.bat`-file and run it, passing all arguments (that's what `%*` does in the command above) off to your newly installed rsync.exe
 
 The first three steps above are based on https://serverfault.com/questions/310337/using-rsync-from-msysgit-for-binary-files/872557#872557 where you can also find instructions for setting up Pageant for SSH, if that's something you need.
 
