@@ -3,7 +3,7 @@ date: "2020-11-28"
 title: "Using RedwoodJS to download protected files from an Amazon S3 bucket"
 category: "RedwoodJS"
 tags: ["RedwoodJS", "JavaScript", "Amazon", "AWS", "S3", "DevOps", "Security"]
-banner: "/assets/bg/4.jpg"
+banner: "/assets/bg/buckets.jpg"
 ---
 
 Recently I had to download files from a RedwoodJS Function (AWS Lambda serverless function). The files contained sensitive information, so I needed to host them somewhere where I could control who could download them. Easiest for me was to put them in an Amazon AWS S3 Bucket, and then create an IAM policy to give a single user read-only access to the files.
@@ -102,3 +102,5 @@ It's finally time to try it all out! Run `yarn rw dev` and you should be able to
 Did it work? Congratulations! All the AWS setup is not easy. Thankfully it's pretty easy to use the SDK once everything is set up correctly. 
 
 Thanks for reading! 
+
+(<span>Photo by <a href="https://unsplash.com/@jdjohnston?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jessica Johnston</a> on <a href="https://unsplash.com/s/photos/buckets?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>)
