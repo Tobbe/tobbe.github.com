@@ -103,4 +103,4 @@ Did it work? Congratulations! All the AWS setup is not easy. Thankfully it's pre
 
 Thanks for reading! 
 
-(<span>Photo by <a href="https://unsplash.com/@jdjohnston?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jessica Johnston</a> on <a href="https://unsplash.com/s/photos/buckets?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>)
+<span style="font-size: 80%">(Header photo by <a href="https://unsplash.com/@jdjohnston?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jessica Johnston</a> on <a href="https://unsplash.com/s/photos/buckets?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>)</span>
