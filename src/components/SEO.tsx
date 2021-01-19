@@ -20,8 +20,8 @@ export const SEO = (props: SEO) => {
     const postMeta = postNode.frontmatter;
     title = postMeta.title;
     description = postNode.excerpt;
-    image = config.siteBanner;
-    postURL = config.siteUrl + realPrefix + postPath;
+    image = postNode.frontmatter.banner || config.siteBanner;
+    postURL = config.siteUrl + realPrefix + '/blog' + postPath;
   } else {
     title = config.siteTitle;
     description = config.siteDescription;
@@ -55,7 +55,7 @@ export const SEO = (props: SEO) => {
           '@type': 'ImageObject',
           url: image,
         },
-        description: config.siteDescription,
+        description: description || config.siteDescription,
         datePublished: postNode.frontmatter.date,
         dateModified: postNode.frontmatter.date,
         author: {
