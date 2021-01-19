@@ -32,6 +32,17 @@ export { RedwoodApolloProvider as RedwoodProvider } from './components/RedwoodAp
 and this:
 
 ```tsx
+import {
+  ApolloProvider,
+  ApolloClientOptions,
+  ApolloClient,
+  InMemoryCache,
+  useQuery,
+  useMutation,
+} from '@apollo/client'
+
+// Other imports...
+
 const ApolloProviderWithFetchConfig: React.FunctionComponent<{
   config?: Omit<ApolloClientOptions<InMemoryCache>, 'cache'>
 }> = ({ config = {}, children }) => {
