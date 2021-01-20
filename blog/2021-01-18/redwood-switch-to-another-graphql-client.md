@@ -76,7 +76,7 @@ export const RedwoodApolloProvider: React.FunctionComponent<{
 
 So `<RedwoodProvider>` is a renamed export of `<RedwoodApolloProvider>` that wrapps the `<ApolloProvider>` context around its children, and passes `useQuery` and `useMutation` from `@apollo/client` to `<GraphQLHooksProvider>`.
 
-The new powerful thing is that we can remove `<RedwoodProvider>` from our code and do what it does on our own instead &mdash; and that gives us the ability to pass in other `useQuery` and `useMutation` hooks from some other GraphQL client. For Apollo Client it's super easy. (It's almost as if Redwood was built for usage with Apollo Client 😜) All you have to do is import `useQuery` and `useMutation` and pass them straight in to `<GraphQLHooksProvider>`. For any other graphql client you are probably going to have to write some adapter code to make it all work.
+The new powerful thing is that we can remove `<RedwoodProvider>` from our code and do what it does on our own instead &mdash; and that gives us the ability to pass in other `useQuery` and `useMutation` hooks from some other GraphQL client. For Apollo Client it's super easy. (It's almost as if Redwood was built for usage with Apollo Client 😜) All you have to do is import `useQuery` and `useMutation` and pass them straight into `<GraphQLHooksProvider>`. For any other graphql client you are probably going to have to write some adapter code to make it all work.
 
 The other thing we need to do is to create our graphql client. And the client will need to know what headers to send and what url to talk to. For this we have the `useFetchConfig()` hook. Again, it's super straightforward to use with Apollo Client, but should be fairly easy to use with your client of choice as well.
 
