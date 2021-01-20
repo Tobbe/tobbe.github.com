@@ -6,9 +6,9 @@ tags: ["RedwoodJS", "JavaScript", "GraphQL", "Apollo Client", "graphql-hooks"]
 banner: "/assets/bg/graph.jpg"
 ---
 
-RedwoodJS ships with with Apollo Client as its default GraphQL client. With the 0.22.0 release of Redwood it's now possible to use another GraphQL client if you want. The key is the new `<GraphQLHooksProvider>` component where you can plug in whatever `useQuery` and `useMutation` hooks you want, as long as they have the correct function signature.
+RedwoodJS ships with Apollo Client as its default GraphQL client. With the 0.22.0 release of Redwood it's now possible to use another GraphQL client if you want. The key is the new `<GraphQLHooksProvider>` component where you can plug in whatever `useQuery` and `useMutation` hooks you want, as long as they have the correct function signature.
 
-By default when you create a new RedwoosJS app this is what you get in your `index.js` file:
+By default when you create a new RedwoodJS app this is what you get in your `index.js` file:
 
 ```jsx
 ReactDOM.render(
@@ -78,7 +78,7 @@ So `<RedwoodProvider>` is a renamed export of `<RedwoodApolloProvider>` that wra
 
 The new powerful thing is that we can remove `<RedwoodProvider>` from our code and do what it does on our own instead &mdash; and that gives us the ability to pass in other `useQuery` and `useMutation` hooks from some other GraphQL client. For Apollo Client it's super easy. (It's almost as if Redwood was built for usage with Apollo Client 😜) All you have to do is import `useQuery` and `useMutation` and pass them straight in to `<GraphQLHooksProvider>`. For any other graphql client you are probably going to have to write some adapter code to make it all work.
 
-The other thing we need to do is to create our graphql client. And the client will need to know what headers to send and what url to talk to. For this we have the `useFetchConfig()` hook. Again, it's super straight forward to use with Apollo Client, but should be fairly easy to use with your client of choice as well.
+The other thing we need to do is to create our graphql client. And the client will need to know what headers to send and what url to talk to. For this we have the `useFetchConfig()` hook. Again, it's super straightforward to use with Apollo Client, but should be fairly easy to use with your client of choice as well.
 
 This is an example of how it can be done when wiring up [graphql-hooks](https://github.com/nearform/graphql-hooks)
 
@@ -122,10 +122,10 @@ ReactDOM.render(
 )
 ```
 
-The adaptors for the hooks are simple. Only change we had to do was to tranform the graphql queries that come as GQL ASTs in to plain strings. We use the `print` function for this. Setting up the client using `useFetchConfig()` is also easy, just have to rename `uri` to `url` for graphql-hooks to be happy.
+The adaptors for the hooks are simple. Only change we had to do was to transform the graphql queries that come as GQL ASTs in to plain strings. We use the `print` function for this. Setting up the client using `useFetchConfig()` is also easy, just have to rename `uri` to `url` for graphql-hooks to be happy.
 
 You can see a full implementation in this GitHub repo: https://github.com/Tobbe/redwood-graphql-hooks (But there really isn't much more to it than what I've shown here.)
 
-So, why do we have to let Redwood know about our `useQuery` and `useMutation` hooks in the first place? `useQuery` is used internally by Redwood with Cells, in its `withCellHOC`. `useMutation` technically wouldn't be necesary. But having it there allows the generators to generate code that runns and is valid. Without it, generated code like this would never be valid: `import { useMutation, useFlash } from '@redwoodjs/web'`. (That line is from the `EditNameCell.js.template` file.)
+So, why do we have to let Redwood know about our `useQuery` and `useMutation` hooks in the first place? `useQuery` is used internally by Redwood with Cells, in its `withCellHOC`. `useMutation` technically wouldn't be necessary. But having it there allows the generators to generate code that runs and is valid. Without it, generated code like this would never be valid: `import { useMutation, useFlash } from '@redwoodjs/web'`. (That line is from the `EditNameCell.js.template` file.)
 
 <span style="font-size: 80%">(Header photo by <a href="https://unsplash.com/@armand_khoury?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Armand Khoury</a> on <a href="https://unsplash.com/s/photos/graph?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>)</span>
