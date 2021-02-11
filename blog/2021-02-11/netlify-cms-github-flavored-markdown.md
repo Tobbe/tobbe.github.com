@@ -8,6 +8,8 @@ banner: "/assets/bg/github.jpg"
 
 Document editing mode on Netlify CMS gives you two panes, one with the editor, and one with a preview. By using the global `CMS` object you can customize the preview. What we're going to do here is to make it render the markdown we write in the editor with [`react-markdown`](https://github.com/remarkjs/react-markdown) which we extend with the [`remark-gfm`](https://github.com/remarkjs/remark-gfm) plugin to add support for Github Flavored Markdown (tables, strikethrough, etc).
 
+![Screenshot of Netlify CMS with GFM enabled preview](/assets/gfm_screenshot.png "NetlifyCMS GFM screenshot")
+
 The way the preview customization works is you tell `CMS` what collection to use the custom preview for, and you give it a React component to use. You can only write old-school class components, and you have to use the `createClass` and `h` helper functions provided by NetlifyCMS.
 
 Below is an example that creates a `DocPreview` React component and tells `CMS` to use that whenever it's showing a preview for a document in the `"pages"` category. The `render()` function uses the `widgetFor()` helper function (read more in the [NetifyCMS docs](https://www.netlifycms.org/docs/customization/#registerpreviewtemplate)) to get the default widget used to display the `'body'` field, and nothing else. By default the preview will show all fields, like "title" etc, but here we're stripping those out.
