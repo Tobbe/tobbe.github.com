@@ -27,7 +27,7 @@ Below is an example that creates a `DocPreview` React component and tells `CMS` 
     <script>
       const DocPreview = createClass({
         render: function() {
-          return this.props.widgetFor('body')
+          return this.props.widgetFor('body');
         },
       });
 
@@ -54,7 +54,7 @@ Another thing we can do is take the plain text from the "body" field and dump it
         render: function() {
           const bodyText = this.props.entry.getIn(["data", "body"]);
 
-          return h("div", {}, bodyText)
+          return h("div", {}, bodyText);
         },
       });
 
@@ -86,7 +86,7 @@ With this you should be back to something that works the same as when we used `w
         render: function() {
           const bodyText = this.props.entry.getIn(["data", "body"]);
 
-          return h(window.ReactMarkdown, {}, bodyText)
+          return h(window.ReactMarkdown, {}, bodyText);
         },
       });
 
@@ -115,7 +115,7 @@ The final step is to add support for Github Flavored Markdown, so we can do tabl
         render: function() {
           const bodyText = this.props.entry.getIn(["data", "body"]);
 
-          return h(window.ReactMarkdown, { plugins: [window.remarkGfm] }, bodyText)
+          return h(window.ReactMarkdown, { plugins: [window.remarkGfm] }, bodyText);
         },
       });
 
