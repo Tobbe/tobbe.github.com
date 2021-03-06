@@ -41,12 +41,16 @@ const SignupPage = () => {
     <Form onSubmit={onSubmit}>
       <Label name="name">Name:</Label>
       <TextField name="name" />
+
       <Label name="email">Email:</Label>
       <EmailField name="email" />
+
       <Label name="password">Password:</Label>
       <PasswordField name="password" />
+
       <Label name="password_confirm">Confirm Password:</Label>
       <PasswordField name="password_confirm" />
+
       <Submit>Submit</Submit>
     </Form>
   );
@@ -85,12 +89,16 @@ return (
   <Form onSubmit={onSubmit}>
     <Label name="name">Name:</Label>
     <TextField name="name" required />
+
     <Label name="email">Email:</Label>
     <EmailField name="email" required />
+
     <Label name="password">Password:</Label>
     <PasswordField name="password" required />
+
     <Label name="password_confirm">Confirm Password:</Label>
     <PasswordField name="password_confirm" required />
+
     <Submit>Submit</Submit>
   </Form>
 );
