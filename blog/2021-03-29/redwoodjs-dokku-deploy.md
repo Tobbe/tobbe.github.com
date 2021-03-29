@@ -68,6 +68,6 @@ If you made it this far, and it works, congratulations! 🎉🏁
 
 I bet a few of you who read this wonder what those github hosted buildpacks do that we added to the `.buildpacks` file. The first one is written by me, and it adds a few files to your Redwood app. Then we add nodejs and nginx. One of the files added in the first step is a config file for nginx. That's why the "redwood-init" buildpack needs to run first. Finally there's another Redwood specific buildpack that installs a few needed packages, builds Redwood and finally starts nginx and Redwood's api server.
 
-🔒 Now that your Redwood app is live, I highly recommend setting up SSL for it, to make it more secure. I'm just going to link to [dokku's SSL guide](https://dokku.com/docs/deployment/application-deployment/#setting-up-ssl). It's really easy to get LetsEncrypt setup.
+🔒 Now that your Redwood app is live, I highly recommend setting up SSL for it, to make it more secure. I'm just going to link to [Dokku's SSL guide](https://dokku.com/docs/deployment/application-deployment/#setting-up-ssl). It's really easy to get Let's Encrypt setup.
 
 <span style="font-size: 80%">(Header photo by <a href="https://unsplash.com/@some_random_guy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Alex Duffy</a> on <a href="https://unsplash.com/s/photos/docks-containers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</span>
