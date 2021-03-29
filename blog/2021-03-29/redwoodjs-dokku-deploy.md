@@ -6,7 +6,7 @@ tags: ["RedwoodJS", "Dokku", "DevOps", "Hosting"]
 banner: "/assets/bg/docks.jpg"
 ---
 
-This is a guide on how to self host a Redwood project using Dokku. Some familiarity with Linux and the command line is required. If you're just getting started with Redwood and want something easy and free I recommend deploying to [Netlify](https://netlify.com) or [Vercel](https://vercel.com), both of which have first-class Redwood support.
+This is a guide on how to self host a Redwood project using [Dokku](https://dokku.com/). Some familiarity with Linux and the command line is required. If you're just getting started with Redwood and want something easy and free I recommend deploying to [Netlify](https://netlify.com) or [Vercel](https://vercel.com), both of which have first-class Redwood support.
 
 If you don't know what Dokku is, the short version is that it's like a self-hosted version of Heroku. It uses the same buildpacks, procfiles and deployment process as Heroku. There are other, more advanced, options as well, if the Heroku stuff is too limiting for you, but I won't go into that here. Since it's like Heroku, that also means you could host your database in Dokku if you wanted. But that's also not covered by this guide.
 
