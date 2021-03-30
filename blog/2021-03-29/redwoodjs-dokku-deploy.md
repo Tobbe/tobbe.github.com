@@ -10,13 +10,13 @@ This is a guide on how to self host a Redwood project using [Dokku](https://dokk
 
 If you don't know what Dokku is, the short version is that it's like a self-hosted version of Heroku. It uses the same buildpacks, procfiles and deployment process as Heroku. There are other, more advanced, options as well, if the Heroku stuff is too limiting for you, but I won't go into that here. Since it's like Heroku, that also means you could host your database in Dokku if you wanted. But that's also not covered by this guide.
 
-Beware that it's you, yourself, who is responsible for keeping your server secure and up-to-date. You have to figure out backups. What do you do if your page becomes super popular? How do you handle scaling? There are a thousand and one reasons to **not** self-host. [begin](https://begin.com) has a whole page dedicated to why you shouldn't do it. It's a pretty fun, and eye-opening read. Have a look: https://begin.com/learn/shit-youre-not-doing-with-begin
+Beware that it's you, yourself, who is responsible for keeping your server secure and up-to-date. You have to figure out backups. What do you do if your page becomes super popular? How do you handle scaling? There are a thousand and one reasons to **not** self-host. [Begin](https://begin.com) has a whole page dedicated to why you shouldn't do it. It's a pretty fun, and eye-opening read. Have a look: https://begin.com/learn/shit-youre-not-doing-with-begin
 
 With that out of the way: let's get started!
 
 To follow along you'll need an Ubuntu 20.04 box (or a recent version of Debian) where you have root access. The server needs to have at least 1 GB of RAM. You'll also need a domain you can configure DNS for. And finally, a suitable Redwood project to deploy. I have a small cloud server at [Hetzner](https://www.hetzner.com) and a domain that I bought through [Porkbun](https://porkbun.com). If you have a DigitalOcean droplet cloud server, or a Microsoft Azure server there are specific guides on Dokku's web page [1](https://dokku.com/docs/getting-started/install/digitalocean/) [2](https://dokku.com/docs/getting-started/install/azure/)
 
-First thing to do is configure your domain to point to the IP address of your server. Make sure it's working by SSHing into your server. If this is a freshly installed OS, create a new user and make sure it's allowed to use the `sudo` command.
+First thing to do is configure your domain to point to the IP address of your server (you need a wildcard record). Make sure it's working by SSHing into your server. If this is a freshly installed OS, create a new user (do **not** name it "dokku") and make sure it's allowed to use the `sudo` command. From now on, use this user to execute all commands.
 
 Install Dokku
 ```
