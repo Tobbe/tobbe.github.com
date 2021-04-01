@@ -10,6 +10,8 @@ This is a guide on how to self host a Redwood project using [Dokku](https://dokk
 
 If you don't know what Dokku is, the short version is that it's like a self-hosted version of Heroku. It uses the same buildpacks, procfiles and deployment process as Heroku. There are other, more advanced, options as well, if the Heroku stuff is too limiting for you, but I won't go into that here. Since it's like Heroku, that also means you could host your database in Dokku if you wanted. But that's also not covered by this guide.
 
+A big shoutout to [Brent Anderson](https://www.brentjanderson.com/) for his [gist](https://gist.github.com/brentjanderson/dcb59c46023c67c44eb12492b038ff84) on getting RW running on Heroku. I could not have written this guide without that gist.
+
 Beware that it's you, yourself, who is responsible for keeping your server secure and up-to-date. You have to figure out backups. What do you do if your page becomes super popular? How do you handle scaling? There are a thousand and one reasons to **not** self-host. [Begin](https://begin.com) has a whole page dedicated to why you shouldn't do it. It's a pretty fun, and eye-opening read. Have a look: https://begin.com/learn/shit-youre-not-doing-with-begin
 
 With that out of the way: let's get started!
