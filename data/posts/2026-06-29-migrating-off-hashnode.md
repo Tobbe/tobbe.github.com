@@ -34,7 +34,10 @@ each post as `cover:`. Some images are multiple megabytes in size. That's way
 too big. I should optimize them before they're served. I'll implement that
 later. When I know where the image is I can just generate an `<img>` element
 with `/assets/<image>.jpg` as the `src`. I also added `coverAlt` to the
-frontmatter to provide an alt text for the cover image.
+frontmatter to provide an alt text for the cover image. All images used in the
+blog posts themselves were hosted by Hashnode's CDN. I had no way to download
+them other than by right-clicking the image and saving the compressed version
+shown to me in the browser.
 
 Pages
 Photo by <a href="https://unsplash.com/@impatrickt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Patrick Tomasso</a> on <a href="https://unsplash.com/photos/open-book-lot-Oaqk7qqNh_c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
