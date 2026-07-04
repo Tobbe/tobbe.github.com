@@ -1,6 +1,7 @@
 ---
 title: Using Github Flavored Markdown in the Netlify CMS Preview Pane
 date: 2021-02-11
+canonicalUrl: https://tlundberg.com/using-github-flavored-markdown-in-the-netlify-cms-preview-pane
 cover: /assets/github-monitor-richy-great-unsplash.jpg
 coverAlt: Cover image for the post. Computer monitor showing the GitHub About page. Photo taken by Richy Great.
 ---

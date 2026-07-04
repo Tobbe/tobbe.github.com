@@ -1,6 +1,7 @@
 ---
 title: "Hosting a Verdaccio NPM Registry on Hetzner Cloud Part 4: Verdaccio"
 date: 2024-04-27
+canonicalUrl: https://tlundberg.com/hosting-a-verdaccio-npm-registry-on-hetzner-cloud-part-4-verdaccio
 cover: /assets/pistachios-syed-f-hashemi-unsplash.jpg
 coverAlt: Cover image for the post. Shelled salted pistachios. Photo taken by Syed F Hashemi.
 ---

@@ -1,6 +1,7 @@
 ---
 title: Migrating data with prisma migrate
 date: 2021-11-28
+canonicalUrl: https://tlundberg.com/migrating-data-with-prisma-migrate
 cover: /assets/prisma-andrey-novik-unsplash.jpg
 ---
 

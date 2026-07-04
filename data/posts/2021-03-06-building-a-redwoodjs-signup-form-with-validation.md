@@ -1,6 +1,7 @@
 ---
 title: Building a RedwoodJS Signup Form with Validation
 date: 2021-03-06
+canonicalUrl: https://tlundberg.com/building-a-redwoodjs-signup-form-with-validation
 cover: /assets/padlock-paulius-dragunas-unsplash.jpg
 coverAlt: Cover image for the post. A painted padlock on a link fence. Photo taken by Paulius Dragunas.
 ---

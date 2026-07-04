@@ -1,6 +1,7 @@
 ---
 title: "Hosting a Verdaccio NPM Registry on Hetzner Cloud Part 3: nginx"
 date: 2024-04-26
+canonicalUrl: https://tlundberg.com/hosting-a-verdaccio-npm-registry-on-hetzner-cloud-part-3-nginx
 cover: /assets/server-rack-wires-taylor-vick-unsplash.jpg
 coverAlt: Cover image for the post. Server rack with wires. Photo taken by Taylor Vick.
 ---

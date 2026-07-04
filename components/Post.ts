@@ -8,6 +8,7 @@ interface Props {
   subtitle?: string;
   cover?: string;
   coverAlt?: string;
+  canonicalUrl?: string;
 }
 
 export const Post = (props: Props) => {
@@ -18,6 +19,7 @@ export const Post = (props: Props) => {
 
   return App({
     title: props.title,
+    canonicalUrl: props.canonicalUrl,
     children: html`${subtitle}${cover}${props.children}`,
   });
 };

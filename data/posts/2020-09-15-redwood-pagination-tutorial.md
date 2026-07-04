@@ -1,6 +1,7 @@
 ---
 title: Redwood Pagination Tutorial
 date: 2020-09-15
+canonicalUrl: https://tlundberg.com/redwood-pagination-tutorial
 cover: /assets/pages-patrick-tomasso-unsplash.jpg
 coverAlt: Cover image for the post. Several books open with yellow pages and black text. Photo taken by Patrick Tomasso.
 ---

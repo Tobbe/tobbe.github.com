@@ -1,6 +1,7 @@
 ---
 title: Deploying a RedwoodJS app on Dokku
 date: 2021-03-29
+canonicalUrl: https://tlundberg.com/deploying-a-redwoodjs-app-on-dokku
 cover: /assets/containers-alex-duffy-unsplash.jpg
 coverAlt: Cover image for the post. A docked shipping ship full of shipping containers on a body of water. Photo taken by Alex Duffy.
 ---

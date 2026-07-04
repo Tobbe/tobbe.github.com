@@ -1,6 +1,7 @@
 ---
 title: Using RedwoodJS to download protected files from an Amazon S3 bucket
 date: 2020-11-28
+canonicalUrl: https://tlundberg.com/using-redwoodjs-to-download-protected-files-from-an-amazon-s3-bucket
 cover: /assets/buckets-jessica-johnston-unsplash.jpg
 coverAlt: Cover image for the post. Various old pots and buckets on a shelf. Photo taken by Jessica Johnston.
 ---

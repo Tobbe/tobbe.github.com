@@ -9,6 +9,7 @@ interface PostMeta {
   subtitle?: string;
   cover?: string;
   coverAlt?: string;
+  canonicalUrl?: string;
   [index: string]: any;
 }
 
@@ -23,6 +24,7 @@ export const GET = async (req: Request) => {
       subtitle: post.meta.subtitle,
       cover: post.meta.cover,
       coverAlt: post.meta.coverAlt,
+      canonicalUrl: post.meta.canonicalUrl,
       children: post.content,
     }),
   );
