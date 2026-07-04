@@ -1,18 +1,29 @@
 import { html, htmlToResponse } from "@mastrojs/mastro";
-import { readMarkdownFile } from "@mastrojs/markdown";
+import { readMarkdownFiles } from "@mastrojs/markdown";
 import { App } from "../components/App.ts";
 
+// TODO: Replace this with proper schema validation
+interface PostMeta {
+  title: string;
+  [index: string]: any;
+}
+
 export const GET = async (_req: Request) => {
-  const post = await readMarkdownFile('/data/posts/2026-06-26-mastro.md')
+  const posts = await readMarkdownFiles<PostMeta>("data/posts/*.md");
 
   return htmlToResponse(
     App({
-      title: post.meta.title,
+      title: "tlundberg.com",
       // children: post.content,
-      children: html`
-        <div>${post.content}</div>
-      `,
+      children: posts.reverse().map(
+        (post) => html`
+          <p>
+            <a href="blog/${post.slug + "/"}"
+              >${post.meta.date} – ${post.meta.title}</a
+            >
+          </p>
+        `,
+      ),
     }),
   );
 };
-
