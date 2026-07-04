@@ -3,6 +3,7 @@ title: Migrating data with prisma migrate
 date: 2021-11-28
 canonicalUrl: https://tlundberg.com/migrating-data-with-prisma-migrate
 cover: /assets/prisma-andrey-novik-unsplash.jpg
+coverAlt: Cover image for the post. Glass prisma set on a table. Photo taken by Andrey Novik.
 ---
 
 `prisma migrate` is mainly used for schema migrations, and it's great for doing that. But sometimes you also need or want to migrate your data along with your schema. Turns out prisma migrate can do that as well!
