@@ -21,7 +21,7 @@ https://www.getzola.org, and https://zine-ssg.io. And I had myself previously
 looked at https://maudit.org.
 
 I'd love to have an actual use case for Rust, so I could better learn it.
-Bloggin with Maudit could be that reason. But for now I wanted something that'd
+Blogging with Maudit could be that reason. But for now I wanted something that'd
 be quicker for me to get started with. And I also wanted something super simple
 that I could compose as I wanted and extend as needed. Fastest, for me, would be
 to just build with [CedarJS](https://cedarjs.com). But the SSG support isn't yet
@@ -34,7 +34,7 @@ job.
 - ~800 lines of code
 - No dependencies
 - No build step required
-- Decent docs (at least they looked good before I actually started workign on
+- Decent docs (at least they looked good before I actually started working on
   the blog 😅)
 - And that standards.site blog post definitely also helped
 
@@ -77,7 +77,7 @@ I had to install the `@mastrojs/markdown` package and wire it up.
 pnpm add jsr:@mastrojs/markdown
 ```
 
-Speaking of following guides, the mastro guide itself doesn't say anything about
+Speaking of following guides, the Mastro guide itself doesn't say anything about
 updating dependencies, but the README file you get when you clone their template
 repo has instructions to do that, so I did `pnpm update "@mastrojs/*" --latest`.
 
@@ -92,8 +92,8 @@ but instead use `24.x` to allow any minor version of Node 24.
 
 Now I could view my post! So I decided to push it to github after also adding
 the deploy workflow from
-https://mastrojs.github.io/guide/deploy/ssg-node-github-pages/. Unfortnately the
-workflow didn't work.
+https://mastrojs.github.io/guide/deploy/ssg-node-github-pages/. Unfortunately
+the workflow didn't work.
 
 ```
 **Annotations**
@@ -116,6 +116,6 @@ secure.
 
 When reading about Mastro I noticed that they're using
 [@maverick-js/signals](https://npmx.dev/package/@maverick-js/signals). Another
-signals library I've been keepign an eye on is
+signals library I've been keeping an eye on is
 [signalium](https://signalium.dev). I wonder how they compare and when one would
 use one over the other. Something to look into in the future! 🙂
