@@ -5,21 +5,41 @@ date: 2026-06-26
 
 Mastro was a little confusing to get started with at first.
 
-I started with their setup guide, https://mastrojs.github.io/guide/setup/. It presented two ways to get started. In a browser environment or on your own command line. I want to write my blog posts locally, so I chose the command line option, which linked to a section on their homepage. Once there you have to make a few more choices. You have to choose your package manager (I chose Node) and then choose between cloning a GitHub repo or run a `create` script. But it wasn't clear what the actual difference between these two were. So naturally I had to try both. Turns out running the `create` script then gives you two options: "basic" or "blog". So now I had three options to choose from when getting started :sweat-smile:
+I started with their setup guide, https://mastrojs.github.io/guide/setup/. It
+presented two ways to get started. In a browser environment or on your own
+command line. I want to write my blog posts locally, so I chose the command line
+option, which linked to a section on their homepage. Once there you have to make
+a few more choices. You have to choose your package manager (I chose Node) and
+then choose between cloning a GitHub repo or run a `create` script. But it
+wasn't clear what the actual difference between these two were. So naturally I
+had to try both. Turns out running the `create` script then gives you two
+options: "basic" or "blog". So now I had three options to choose from when
+getting started :sweat-smile:
 
-After comparing things a bit it looks like the GitHub repo and teh "basic" option are pretty much the same thing. If you go with the "blog" option you also get a page listing two blog posts and the posts themselves as plain markdown files. Plus it shows you how to transform those markdown files to html for viewing in the browser.
+After comparing things a bit it looks like the GitHub repo and teh "basic"
+option are pretty much the same thing. If you go with the "blog" option you also
+get a page listing two blog posts and the posts themselves as plain markdown
+files. Plus it shows you how to transform those markdown files to html for
+viewing in the browser.
 
-Even though I did want a blog, I decided to go with the cloned repo so I could wire the blog up myself the way I wanted it.
+Even though I did want a blog, I decided to go with the cloned repo so I could
+wire the blog up myself the way I wanted it.
 
 So started writing this file in data/posts/2026-06-26-mastro.md
 
-After a while I really wanted to see something in my browser, so I decided to just render this markdown file on the main index page. To do so I basically just followed the guide on how to render a single post here https://mastrojs.github.io/guide/static-blog-from-markdown-files/#detail-pages. I had to install the `@mastrojs/markdown` package and wire it up.
+After a while I really wanted to see something in my browser, so I decided to
+just render this markdown file on the main index page. To do so I basically just
+followed the guide on how to render a single post here
+https://mastrojs.github.io/guide/static-blog-from-markdown-files/#detail-pages.
+I had to install the `@mastrojs/markdown` package and wire it up.
 
 ```sh
 pnpm add jsr:@mastrojs/markdown
 ```
 
-Speaking of following guides, the mastro guide itself doesn't say anything about updating dependencies, but the README file you get when you clone their template repo has instructions to do that, so I did `pnpm update "@mastrojs/*" --latest`.
+Speaking of following guides, the mastro guide itself doesn't say anything about
+updating dependencies, but the README file you get when you clone their template
+repo has instructions to do that, so I did `pnpm update "@mastrojs/*" --latest`.
 
 When I then tried to finally view my page in my browser I got this warning:
 
@@ -27,9 +47,12 @@ When I then tried to finally view my page in my browser I got this warning:
  WARN  Unsupported engine: wanted: {"node":"24.17.0"} (current: {"node":"v24.14.1","pnpm":"10.33.4"})
 ```
 
-I fixed that by updating `package.json`. I chose to not pin the node version, but instead use `24.x` to allow any minor version of Node 24.
+I fixed that by updating `package.json`. I chose to not pin the node version,
+but instead use `24.x` to allow any minor version of Node 24.
 
-Now I could view my post! So I decided to push it to github after also adding the deploy workflow from https://mastrojs.github.io/guide/deploy/ssg-node-github-pages/
+Now I could view my post! So I decided to push it to github after also adding
+the deploy workflow from
+https://mastrojs.github.io/guide/deploy/ssg-node-github-pages/
 
 unfortnately it didn't work.
 
@@ -45,7 +68,8 @@ Error: No pnpm version is specified. Please specify it by one of the following w
 Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, pnpm/action-setup@v4.
 ```
 
-To fix those I specified `devEngines.packageManager` in `package.json`, and I updated all actions in the github workflow file to their latest major version
+To fix those I specified `devEngines.packageManager` in `package.json`, and I
+updated all actions in the github workflow file to their latest major version
 
 ---
 
