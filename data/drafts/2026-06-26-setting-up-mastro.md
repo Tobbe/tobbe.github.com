@@ -1,5 +1,5 @@
 ---
-title: mastrojs
+title: Setting up Mastro
 date: 2026-06-26
 ---
 
