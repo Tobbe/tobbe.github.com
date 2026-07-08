@@ -1,6 +1,8 @@
 ---
 title: Setting up Mastro
 date: 2026-06-26
+cover: /assets/mastro-logo-800.png
+coverAlt: Cover image for the post. Mastro's logo (a male cook)
 ---
 
 # Why Mastro
