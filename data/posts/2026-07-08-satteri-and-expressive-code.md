@@ -76,3 +76,9 @@ as you can see on this page, and in the screenshot below.
 
 You get "tabs", filename display and syntax highlighting. I think it looks
 great!
+
+Unfortunately, what doesn't look great though is some of the defaults I get with
+matcha.css
+([see my earlier blog post on Classless CSS Styling](https://tobbe.github.com/posts/2026-07-07-classless-css-styling/))
+For example, it lacks padding/margin between code blocks and an immediate
+following header.

@@ -42,6 +42,10 @@ more like what I want out of the box.
 For now though, I'll just leave it like this and focus on the next thing, which
 is code syntax highlighting.
 
+*EDIT 2026-07-08:* The bugs I'm finding with matcha.css, especially around
+spacing, is really starting to bother me. I'll probably bump up the prio on
+finding an alternative.
+
 ***
 
 <span style="font-size: 80%">(Cover photo by <a href="https://unsplash.com/@anko_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Anna Kolosyuk</a> on <a href="https://unsplash.com/photos/three-silver-paint-brushes-on-white-textile-D5nh6mCW52c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</span>
