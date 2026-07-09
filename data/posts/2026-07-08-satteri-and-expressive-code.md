@@ -1,5 +1,5 @@
 ---
-title: Sätteri and Shiki
+title: Sätteri and Expressive Code
 date: 2026-07-08
 cover: /assets/satteri-logo.webp
 coverAlt: Sätteri's logo
