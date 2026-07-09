@@ -17,6 +17,7 @@ export const App = (props: Props) => {
       <head>
         <meta charset="UTF-8" />
         <title>${props.title}</title>
+        <link rel="stylesheet" href="https://matcha.mizu.sh/matcha.css" />
         <link rel="stylesheet" href="/styles.css" />
         ${canonicalUrl}
       </head>

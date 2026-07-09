@@ -1,6 +1,8 @@
 ---
 title: Deploying to GitHub Pages
 date: 2026-07-04
+cover: /assets/github-monitor-richy-great-unsplash.jpg
+coverAlt: Cover image for the post. Computer monitor showing the GitHub About page. Photo taken by Richy Great.
 ---
 
 By now I had all the data saved locally. The page looks **very** basic, but at
@@ -58,5 +60,9 @@ export const App = (props: Props) => {
 ```
 
 And with that, I decided I had done the bare minimum, on the technical side, to
-be able to deploy and share a link to my in-progress blog. Now I just had to
-clean up (or not publish) the newer posts.
+be able to deploy and share a link to my in-progress blog. Now I just have to
+clean up (or not publish) the newer posts (this one included).
+
+***
+
+<span style="font-size: 80%">(Cover photo by <a href="https://unsplash.com/@richygreat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Richy Great</a> on <a href="https://unsplash.com/s/photos/github?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>)</span>

@@ -9,7 +9,9 @@
   "dependencies": {
     "@mastrojs/markdown": "jsr:^0.2.2",
     "@mastrojs/mastro": "jsr:^0.8.9",
-    "@remix-run/node-fetch-server": "^0.11"
+    "@remix-run/node-fetch-server": "^0.11",
+    "satteri": "0.9.5",
+    "satteri-expressive-code": "^0.1.17"
   },
   "devDependencies": {
     "@types/node": "^24",
