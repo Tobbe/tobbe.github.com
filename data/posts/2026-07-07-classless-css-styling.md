@@ -46,6 +46,11 @@ is code syntax highlighting.
 spacing, is really starting to bother me. I'll probably bump up the prio on
 finding an alternative.
 
+*EDIT 2026-07-10:* I went looking for another drop-in css file to use instead of
+matcha.css, and found [OK.css](https://github.com/andrewh0/okcss). It looked
+decent on the random pages of my blog I looked at, so I'm switching to that one
+instead now
+
 ***
 
 <span style="font-size: 80%">(Cover photo by <a href="https://unsplash.com/@anko_?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Anna Kolosyuk</a> on <a href="https://unsplash.com/photos/three-silver-paint-brushes-on-white-textile-D5nh6mCW52c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</span>

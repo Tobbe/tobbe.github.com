@@ -10,7 +10,7 @@ Next on my list of things to do was to get syntax highlighting working.
 Mastro ships with [micromark](https://github.com/micromark/micromark) as its
 default markdown parser. micromark, on its own, doesn't support syntax
 highlighting though. Their
-[markdown pacakge readme](https://github.com/mastrojs/markdown#README) shows you
+[markdown package readme](https://github.com/mastrojs/markdown#README) shows you
 how to use markdown-it and remark-rehype. Both of which can be used to add
 syntax highlighting to code blocks in your markdown.
 
