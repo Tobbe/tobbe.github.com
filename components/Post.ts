@@ -9,15 +9,39 @@ interface Props {
   cover?: string;
   coverAlt?: string;
   readingTimeMinutes: number;
+  lastModified: Date;
   previousPost?: { slug: string; meta: { title: string } };
   nextPost?: { slug: string; meta: { title: string } };
   canonicalUrl?: string;
 }
 
+function getEnglishDate(date: Date) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+}
+
 export const Post = (props: Props) => {
   const subtitle = props.subtitle ? html`<h2>${props.subtitle}</h2>` : null;
-  const readingTime = html`<div>
-    Reading time: ${props.readingTimeMinutes} minutes
+  const postMeta = html`<div>
+    Last modified:
+    <time datetime="${props.lastModified.toISOString()}">
+      ${getEnglishDate(props.lastModified)}
+    </time>
+    &bull; Reading time: ${props.readingTimeMinutes} minutes
   </div>`;
   const cover = props.cover
     ? html`<img src="${props.cover}" alt="${props.coverAlt ?? props.title}" />`
@@ -47,7 +71,7 @@ export const Post = (props: Props) => {
       </header>
       <main>
         <h1>${props.title}</h1>
-        ${subtitle}${readingTime}${cover}${props.children}
+        ${subtitle}${postMeta}${cover}${props.children}
         <hr />
         <section
           style="display: flex; flex-wrap: wrap; justify-content: space-between;"

@@ -76,6 +76,7 @@ function parseFrontmatter(frontmatter: string = ""): PostMeta {
 }
 
 export async function renderPost(dir: string, slug?: string) {
+  const fileStats = await fs.stat(`data/${dir}/${slug}.md`);
   const postMd = await fs.readFile(`data/${dir}/${slug}.md`, "utf8");
   const { html, frontmatter } = await markdownToHtml(postMd, {
     features: { gfm: true, frontmatter: true, headingAttributes: true },
@@ -98,6 +99,7 @@ export async function renderPost(dir: string, slug?: string) {
       coverAlt: postMeta.coverAlt,
       canonicalUrl: postMeta.canonicalUrl,
       readingTimeMinutes: Math.round(minutes),
+      lastModified: fileStats.mtime,
       previousPost,
       nextPost,
       children: unsafeInnerHtml(html),
