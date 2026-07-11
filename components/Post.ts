@@ -28,7 +28,7 @@ export const Post = (props: Props) => {
       </span>`
     : null;
   const linkToNextPost = props.nextPost
-    ? html`<span style="margin-left: auto">
+    ? html`<span style="margin-left: auto; text-align: right;">
         Next post:
         <a href="/blog/${props.nextPost.slug}/">${props.nextPost.meta.title}</a>
       </span>`
