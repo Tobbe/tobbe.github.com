@@ -17,6 +17,7 @@ export const App = (props: Props) => {
       <head>
         <meta charset="UTF-8" />
         <title>${props.title}</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.png" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/andrewh0/okcss@2/dist/core.min.css"
