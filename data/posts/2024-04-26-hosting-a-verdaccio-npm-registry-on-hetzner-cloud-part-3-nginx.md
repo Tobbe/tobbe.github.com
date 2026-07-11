@@ -105,6 +105,4 @@ For now we should just make sure it all works by going to [https://pistachio.tob
 
 This was a pretty short part. We installed nginx and configured it to use SSL. We also verified that we could now access our web server using https. We'll come back to the nginx config, but first we need to install [Verdaccio](https://verdaccio.org), and that's exactly what we'll do in [the next part of this guide](https://tlundberg.com/hosting-a-verdaccio-npm-registry-on-hetzner-cloud-part-4-verdaccio).
 
----
-
-Cover Photo by [Taylor Vick](https://unsplash.com/@tvick?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash) on [Unsplash](https://unsplash.com/photos/cable-network-M5tzZtFCOfs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash)
+<span style="font-size: 80%">(Cover Photo by <a href="https://unsplash.com/@tvick?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Taylor Vick</a> on <a href="https://unsplash.com/photos/cable-network-M5tzZtFCOfs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>)</span>
