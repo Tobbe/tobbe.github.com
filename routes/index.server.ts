@@ -15,15 +15,22 @@ export const GET = async (_req: Request) => {
     App({
       title: "tlundberg.com",
       // children: post.content,
-      children: posts.reverse().map(
-        (post) => html`
-          <p>
-            <a href="blog/${post.slug + "/"}"
-              >${post.meta.date} – ${post.meta.title}</a
-            >
-          </p>
-        `,
-      ),
+      children: html`<hgroup>
+          <h1>tlundberg.com</h1>
+          <p>Tobbe Lundberg's place on teh Intarwebs</p>
+        </hgroup>
+        <h2>Blog Posts</h2>
+        <ul>
+          ${posts.reverse().map(
+            (post) => html`
+              <li>
+                <a href="blog/${post.slug + "/"}"
+                  >${post.meta.date} – ${post.meta.title}</a
+                >
+              </li>
+            `,
+          )}
+        </ul>`,
     }),
   );
 };

@@ -20,6 +20,7 @@ export const Post = (props: Props) => {
   return App({
     title: props.title,
     canonicalUrl: props.canonicalUrl,
-    children: html`${subtitle}${cover}${props.children}`,
+    children: html`<h1>${props.title}</h1>
+      ${subtitle}${cover}${props.children}`,
   });
 };

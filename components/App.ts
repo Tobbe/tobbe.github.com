@@ -25,7 +25,6 @@ export const App = (props: Props) => {
         ${canonicalUrl}
       </head>
       <body>
-        <h1>${props.title}</h1>
         ${props.children}
       </body>
     </html>
