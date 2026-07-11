@@ -216,6 +216,9 @@ importers:
       '@remix-run/node-fetch-server':
         specifier: ^0.11
         version: 0.11.0
+      reading-time:
+        specifier: ^1.5.0
+        version: 1.5.0
       satteri:
         specifier: 0.9.5
         version: 0.9.5
@@ -683,6 +686,9 @@ packages:
 
   property-information@7.2.0:
     resolution: {integrity: sha512-IAtzIB6sUiWaJYrX9smp3V46pBGbBeLFRGdh25kg1334VcBlD8HzhPeNIWQH9zhGmo2itIe25EHt9dQP7G5hmg==}
+
+  reading-time@1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
 
   regex-recursion@6.0.2:
     resolution: {integrity: sha512-0YCaSCq2VRIebiaUviZNs0cBz1kg5kVS2UKUfNIx8YVs1cN3AV7NTctO5FOKBA+UT2BPJIWZauYHPqJODG50cg==}
@@ -1273,6 +1279,8 @@ snapshots:
       source-map-js: 1.2.1
 
   property-information@7.2.0: {}
+
+  reading-time@1.5.0: {}
 
   regex-recursion@6.0.2:
     dependencies:

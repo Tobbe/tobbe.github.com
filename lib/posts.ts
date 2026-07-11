@@ -1,6 +1,7 @@
 import fs from "node:fs/promises";
 import { htmlToResponse, unsafeInnerHtml } from "@mastrojs/mastro";
 import { readMarkdownFiles } from "@mastrojs/markdown";
+import readingTime from "reading-time";
 import { markdownToHtml } from "satteri";
 import expressiveCode from "satteri-expressive-code";
 import { Post } from "../components/Post.ts";
@@ -32,7 +33,23 @@ function parseFrontmatter(frontmatter: string = ""): PostMeta {
   const fmObj: Record<string, string | undefined> = {};
 
   for (const line of lines) {
-    const [key, value] = line.split(":").map((s) => s.trim());
+    const index = line.indexOf(":");
+    if (index === -1) {
+      // TODO: Propably throw an error
+      continue;
+    }
+
+    const key = line.slice(0, index).trim();
+    let value = line.slice(index + 1).trim();
+
+    // Remove wrapping single or double quotes
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+
     if (key && value) {
       fmObj[key] = value;
     }
@@ -66,6 +83,7 @@ export async function renderPost(dir: string, slug?: string) {
   });
 
   const postMeta = parseFrontmatter(frontmatter?.value);
+  const { minutes } = readingTime(postMd);
 
   const posts = await getSortedPosts();
   const postIndex = posts.findIndex((post) => post.slug === slug);
@@ -79,6 +97,7 @@ export async function renderPost(dir: string, slug?: string) {
       cover: postMeta.cover,
       coverAlt: postMeta.coverAlt,
       canonicalUrl: postMeta.canonicalUrl,
+      readingTimeMinutes: Math.round(minutes),
       previousPost,
       nextPost,
       children: unsafeInnerHtml(html),
