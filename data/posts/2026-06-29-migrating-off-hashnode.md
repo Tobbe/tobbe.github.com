@@ -43,6 +43,4 @@ All images used in the blog posts themselves were hosted by Hashnode's CDN. I
 had no way to download them other than by right-clicking the image and saving
 the compressed version shown to me in the browser.
 
-***
-
 <span style="font-size: 80%">(Cover photo by <a href="https://unsplash.com/@mantashesthaven?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Mantas Hesthaven</a> on <a href="https://unsplash.com/photos/man-holding-luggage-photo-_g1WdcKcV3w?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</span>

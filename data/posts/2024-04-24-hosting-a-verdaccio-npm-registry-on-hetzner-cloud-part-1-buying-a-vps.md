@@ -1,6 +1,6 @@
 ---
 title: "Hosting a Verdaccio NPM Registry on Hetzner Cloud Part 1: Buying a VPS"
-date: 2024-04-26
+date: 2024-04-24 13:00:00
 canonicalUrl: https://tlundberg.com/hosting-a-verdaccio-npm-registry-on-hetzner-cloud-part-1-buying-a-vps
 cover: /assets/server-rack-matthieu-beaumont-unsplash.webp
 coverAlt: Cover image for the post. Storage server rack. Photo taken by Matthieu Beaumont.
