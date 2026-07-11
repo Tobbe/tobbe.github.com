@@ -207,6 +207,9 @@ importers:
 
   .:
     dependencies:
+      '@mastrojs/atproto':
+        specifier: jsr:^0.2.2
+        version: '@jsr/mastrojs__atproto@0.2.2'
       '@mastrojs/markdown':
         specifier: jsr:^0.2.2
         version: '@jsr/mastrojs__markdown@0.2.2'
@@ -237,6 +240,34 @@ importers:
         version: 5.9.3
 
 packages:
+
+  '@atproto/api@0.20.28':
+    resolution: {integrity: sha512-/Rvk8zt9mtRi9tlMD2Qg+NG2lMj3B0HDjmfswR5724pH7GsOEMDDHwleVlmOBSrgACIyVSa5tdCDJ+R+SEhwww==}
+    engines: {node: '>=22'}
+
+  '@atproto/common-web@0.5.6':
+    resolution: {integrity: sha512-5Y4MIK9dpkJPiKiE6u7iEHitxj+g3aAU2GfGL686JlKE2zDKD4y18BJb+uVek6nXQKb5XOdNVvw+7BHarpn8Fw==}
+    engines: {node: '>=22'}
+
+  '@atproto/lex-data@0.1.5':
+    resolution: {integrity: sha512-TEM6GHuYpNm4O90LjNgbYq1Gmcr875S+BHrDxkg4PB5w/nlsz4HlbkGQG/WP/xbIV5O8TF5nNHDpCZ5ezTRrFA==}
+    engines: {node: '>=22'}
+
+  '@atproto/lex-json@0.1.4':
+    resolution: {integrity: sha512-ENR2cWkVrES+UL6TovbCRdX9BJOyHHJUS8jYx3Lxp3j4vEphjn/u+DW7bWloST2O8ID2OuVlt6+28ftNEEjmQQ==}
+    engines: {node: '>=22'}
+
+  '@atproto/lexicon@0.7.7':
+    resolution: {integrity: sha512-92VH2oEsJdrIVNy7WY8rGn99ANNVglyUffoN7GJc0mxKi+fXN5iVlJ2cOyTfYABhr2ldSiptZWXEPEdBaIR9/A==}
+    engines: {node: '>=22'}
+
+  '@atproto/syntax@0.7.2':
+    resolution: {integrity: sha512-tZ1Tr0R9pK4bI4Zs69t29cjMlCFQvRNBeNkqJC5pGeNuCt64D0eoF7s/AlqeVmYppClmQ0xJquggGgsMDP6j7w==}
+    engines: {node: '>=22'}
+
+  '@atproto/xrpc@0.8.6':
+    resolution: {integrity: sha512-yVfKrlwZBBm44Ft9jDvHcTCwQ1ElqSlzXHWhT/KcqE+u24EAhWVFosfABfGbUByB/PmN8eLJ06FsWo5pUQcMNQ==}
+    engines: {node: '>=22'}
 
   '@bruits/satteri-darwin-arm64@0.9.5':
     resolution: {integrity: sha512-iw4nZgx9v30lWo/MTngQqi1pI78KI0DnkSm+lVJGYdmPLgAyDNJigVhpG42/Iq55A6c1Ll8q66ljyyRiQUxwow==}
@@ -311,6 +342,9 @@ packages:
 
   '@expressive-code/plugin-text-markers@0.42.0':
     resolution: {integrity: sha512-l59lUx8fq1v5g6SpmbDjiU0+7IdfbiWnAyRmtTVSpfhyq+nZMN4UcmYyu2b9Mynhzt7Gr+O+cXyEPDNb2AVWVQ==}
+
+  '@jsr/mastrojs__atproto@0.2.2':
+    resolution: {integrity: sha512-HVSpOPSKtzAAQr/ERAWFTgeI8gIJrW4XZ+ef3NwDtBw4aY1I0eiMV/a6tI0DHmEzaZ/WiUJhTrsjblE81W8EqA==, tarball: https://npm.jsr.io/~/11/@jsr/mastrojs__atproto/0.2.2.tgz}
 
   '@jsr/mastrojs__markdown@0.2.2':
     resolution: {integrity: sha512-jfweAIdg5DgvrQ1v+Lv13J5rq6TQsfkcfrrxEyAJamXZhygvaBqRN4VbYLZV8RiuQlREQ+07SqLNzycSPqbnMw==, tarball: https://npm.jsr.io/~/11/@jsr/mastrojs__markdown/0.2.2.tgz}
@@ -390,6 +424,9 @@ packages:
 
   '@ungap/structured-clone@1.3.2':
     resolution: {integrity: sha512-5jsZFwgR5rTdKwidH9Qmat75RKwqfpKlWWB1frDkljN127mwqBu8K0PYo7/hFpF03IEJpfVPpCQDY/eDx3iHvA==}
+
+  await-lock@3.0.0:
+    resolution: {integrity: sha512-eO6fLiSnrJrMdjWMNK8zbVRXPs2TKJg78iKZd9wDpN3na5tcoV6EoeiOlMgk2QaAQ1gIrK1YuMsJHXWqz89tSA==}
 
   bcp-47-match@2.0.3:
     resolution: {integrity: sha512-JtTezzbAibu8G0R9op9zb3vcWZd9JF6M0xOYGPn0fNCd7wOpRB1mU2mH9T8gaBGbAAyIIVgB2G7xG0GP98zMAQ==}
@@ -475,6 +512,9 @@ packages:
 
   html-void-elements@3.0.0:
     resolution: {integrity: sha512-bEqo66MRXsUGxWHV5IP0PUiAWwoEjba4VCzg0LjFJBpchPaTfyfCKTG6bc5F8ucKec3q5y6qOdGyYTSBEvhCrg==}
+
+  iso-datestring-validator@2.2.2:
+    resolution: {integrity: sha512-yLEMkBbLZTlVQqOnQ4FiMujR6T4DEcCb1xizmvXS+OxuhwcbtynoosRzdMA69zZCShCNAbi+gJ71FxZBBXx1SA==}
 
   mdast-util-to-hast@13.2.1:
     resolution: {integrity: sha512-cctsq2wp5vTsLIcaymblUriiTcZd0CwWtCbLvrOzYCDZoWyMNV8sZ7krj09FSnsiJi3WVsHLM4k6Dq/yaPyCXA==}
@@ -562,6 +602,9 @@ packages:
 
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
+
+  multiformats@13.4.2:
+    resolution: {integrity: sha512-eh6eHCrRi1+POZ3dA+Dq1C6jhP1GNtr9CRINMb67OKzqW9I5DUuZM/3jLPlzhgpGeiNUlEGEbkCYChXMCc/8DQ==}
 
   nanoid@3.3.15:
     resolution: {integrity: sha512-y7Wygv/7mEOvxTuEQDB8StXdMRBWf1kR/tlhAzBRUFkB2jfcLOAxO/SHmOO2zgz1pVgK29/kyupn059/bCHdjA==}
@@ -721,6 +764,10 @@ packages:
   stringify-entities@4.0.4:
     resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
 
+  tlds@1.261.0:
+    resolution: {integrity: sha512-QXqwfEl9ddlGBaRFXIvNKK6OhipSiLXuRuLJX5DErz0o0Q0rYxulWLdFryTkV5PkdZct5iMInwYEGe/eR++1AA==}
+    hasBin: true
+
   trim-lines@3.0.1:
     resolution: {integrity: sha512-kRj8B+YHZCc9kQYdWfJB2/oUl9rA99qbowYYBtr4ui4mZyAQ2JpvVBd/6U2YloATfqBhBTSMhTpgBHtU0Mf3Rg==}
 
@@ -734,6 +781,9 @@ packages:
 
   undici-types@7.18.2:
     resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
+
+  unicode-segmenter@0.14.5:
+    resolution: {integrity: sha512-jHGmj2LUuqDcX3hqY12Ql+uhUTn8huuxNZGq7GvtF6bSybzH3aFgedYu/KTzQStEgt1Ra2F3HxadNXsNjb3m3g==}
 
   unist-util-find-after@5.0.0:
     resolution: {integrity: sha512-amQa0Ep2m6hE2g72AugUItjbuM8X8cGQnFoHk0pGfrFeT9GZhzN5SW8nRsiGKK7Aif4CrACPENkA6P/Lw6fHGQ==}
@@ -762,10 +812,59 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@atproto/api@0.20.28':
+    dependencies:
+      '@atproto/common-web': 0.5.6
+      '@atproto/lexicon': 0.7.7
+      '@atproto/syntax': 0.7.2
+      '@atproto/xrpc': 0.8.6
+      await-lock: 3.0.0
+      multiformats: 13.4.2
+      tlds: 1.261.0
+      zod: 3.25.76
+
+  '@atproto/common-web@0.5.6':
+    dependencies:
+      '@atproto/lex-data': 0.1.5
+      '@atproto/lex-json': 0.1.4
+      '@atproto/syntax': 0.7.2
+      zod: 3.25.76
+
+  '@atproto/lex-data@0.1.5':
+    dependencies:
+      multiformats: 13.4.2
+      tslib: 2.8.1
+      unicode-segmenter: 0.14.5
+
+  '@atproto/lex-json@0.1.4':
+    dependencies:
+      '@atproto/lex-data': 0.1.5
+      tslib: 2.8.1
+
+  '@atproto/lexicon@0.7.7':
+    dependencies:
+      '@atproto/common-web': 0.5.6
+      '@atproto/syntax': 0.7.2
+      multiformats: 13.4.2
+      zod: 3.25.76
+
+  '@atproto/syntax@0.7.2':
+    dependencies:
+      iso-datestring-validator: 2.2.2
+      tslib: 2.8.1
+
+  '@atproto/xrpc@0.8.6':
+    dependencies:
+      '@atproto/lexicon': 0.7.7
+      zod: 3.25.76
 
   '@bruits/satteri-darwin-arm64@0.9.5':
     optional: true
@@ -840,6 +939,10 @@ snapshots:
   '@expressive-code/plugin-text-markers@0.42.0':
     dependencies:
       '@expressive-code/core': 0.42.0
+
+  '@jsr/mastrojs__atproto@0.2.2':
+    dependencies:
+      '@atproto/api': 0.20.28
 
   '@jsr/mastrojs__markdown@0.2.2':
     dependencies:
@@ -935,6 +1038,8 @@ snapshots:
   '@types/unist@3.0.3': {}
 
   '@ungap/structured-clone@1.3.2': {}
+
+  await-lock@3.0.0: {}
 
   bcp-47-match@2.0.3: {}
 
@@ -1045,6 +1150,8 @@ snapshots:
       space-separated-tokens: 2.0.2
 
   html-void-elements@3.0.0: {}
+
+  iso-datestring-validator@2.2.2: {}
 
   mdast-util-to-hast@13.2.1:
     dependencies:
@@ -1244,6 +1351,8 @@ snapshots:
 
   ms@2.1.3: {}
 
+  multiformats@13.4.2: {}
+
   nanoid@3.3.15: {}
 
   node@runtime:24.18.0: {}
@@ -1334,14 +1443,17 @@ snapshots:
       character-entities-html4: 2.1.0
       character-entities-legacy: 3.0.0
 
+  tlds@1.261.0: {}
+
   trim-lines@3.0.1: {}
 
-  tslib@2.8.1:
-    optional: true
+  tslib@2.8.1: {}
 
   typescript@5.9.3: {}
 
   undici-types@7.18.2: {}
+
+  unicode-segmenter@0.14.5: {}
 
   unist-util-find-after@5.0.0:
     dependencies:
@@ -1382,5 +1494,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
+
+  zod@3.25.76: {}
 
   zwitch@2.0.4: {}
