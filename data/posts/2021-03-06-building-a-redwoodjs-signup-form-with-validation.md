@@ -14,7 +14,7 @@ This is what we'll build
 
 Let's start with a new Redwood project and generate a signup page to add our form to.
 
-```terminal
+```sh
 yarn create redwood-app signup-example
 cd signup-example/
 yarn rw g page signup
