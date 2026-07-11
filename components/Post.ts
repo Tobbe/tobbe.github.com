@@ -49,7 +49,7 @@ export const Post = (props: Props) => {
 
   const linkToPreviousPost = props.previousPost
     ? html`<span>
-        Previous post:
+        Newer post:
         <a href="/blog/${props.previousPost.slug}/"
           >${props.previousPost.meta.title}</a
         >
@@ -57,7 +57,7 @@ export const Post = (props: Props) => {
     : null;
   const linkToNextPost = props.nextPost
     ? html`<span style="margin-left: auto; text-align: right;">
-        Next post:
+        Older post:
         <a href="/blog/${props.nextPost.slug}/">${props.nextPost.meta.title}</a>
       </span>`
     : null;
