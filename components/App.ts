@@ -1,16 +1,13 @@
-import { type Html, html } from "@mastrojs/mastro";
+import { html } from "@mastrojs/mastro";
+import type { Html } from "@mastrojs/mastro";
 
 interface Props {
   children: Html;
   title: string;
-  canonicalUrl?: string;
+  headerTags?: Html[];
 }
 
 export const App = (props: Props) => {
-  const canonicalUrl = props.canonicalUrl
-    ? html`<link rel="canonical" href="${props.canonicalUrl}" />`
-    : null;
-
   return html`
     <!DOCTYPE html>
     <html lang="en">
@@ -23,7 +20,7 @@ export const App = (props: Props) => {
           href="https://cdn.jsdelivr.net/gh/andrewh0/okcss@2/dist/core.min.css"
         />
         <link rel="stylesheet" href="/styles.css" />
-        ${canonicalUrl}
+        ${props.headerTags}
       </head>
       <body>
         ${props.children}

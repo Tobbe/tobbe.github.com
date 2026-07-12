@@ -1,19 +1,8 @@
-import { type Html, html } from "@mastrojs/mastro";
+import { rkeyFromUrl } from "@mastrojs/atproto";
+import { html } from "@mastrojs/mastro";
+import type { Html } from "@mastrojs/mastro";
 
 import { App } from "./App.ts";
-
-interface Props {
-  children: Html;
-  title: string;
-  subtitle?: string;
-  cover?: string;
-  coverAlt?: string;
-  readingTimeMinutes: number;
-  lastModified: Date;
-  previousPost?: { slug: string; meta: { title: string } };
-  nextPost?: { slug: string; meta: { title: string } };
-  canonicalUrl?: string;
-}
 
 function getEnglishDate(date: Date) {
   const months = [
@@ -34,7 +23,34 @@ function getEnglishDate(date: Date) {
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
+const DID = "did:plc:irutxjhccx4xajwsurbjdq6f";
+
+interface Props {
+  children: Html;
+  title: string;
+  subtitle?: string;
+  cover?: string;
+  coverAlt?: string;
+  readingTimeMinutes: number;
+  lastModified: Date;
+  previousPost?: { slug: string; meta: { title: string } };
+  nextPost?: { slug: string; meta: { title: string } };
+  canonicalUrl?: string;
+}
+
 export const Post = (props: Props) => {
+  const canonicalUrl = props.canonicalUrl
+    ? html`<link rel="canonical" href="${props.canonicalUrl}" />`
+    : [];
+
+  const url = props.canonicalUrl ? new URL(props.canonicalUrl) : null;
+  const siteStandardDocument = url
+    ? html`<link
+        rel="site.standard.document"
+        href=${`at://${DID}/site.standard.document/${rkeyFromUrl(url)}`}
+      />`
+    : [];
+
   const subtitle = props.subtitle ? html`<h2>${props.subtitle}</h2>` : null;
   const postMeta = html`<div>
     Last modified:
@@ -64,7 +80,7 @@ export const Post = (props: Props) => {
 
   return App({
     title: props.title,
-    canonicalUrl: props.canonicalUrl,
+    headerTags: [...canonicalUrl, ...siteStandardDocument],
     children: html`
       <header style="text-align: center">
         <a href="/" title="Home">Tobbe Lundberg's place on teh Intarwebs</a>
