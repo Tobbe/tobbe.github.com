@@ -2,7 +2,7 @@
 title: WebSockets in RedwoodJS
 subtitle: For realtime sync between clients
 date: 2022-10-11
-canonicalUrl: https://tlundberg.com/blog/2023-02-25-websockets-in-redwoodjs
+canonicalUrl: https://tlundberg.com/blog/2023-02-25-websockets-in-redwoodjs/
 cover: /assets/playing-cards-amanda-jones-unsplash.jpg
 coverAlt: Cover image for the post. Spread of playing cards. Photo taken by Amanda Jones.
 ---

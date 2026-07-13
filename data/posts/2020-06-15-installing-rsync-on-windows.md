@@ -1,7 +1,7 @@
 ---
 title: Installing rsync on Windows
 date: 2020-06-15
-canonicalUrl: https://tlundberg.com/blog/2020-06-15-installing-rsync-on-windows
+canonicalUrl: https://tlundberg.com/blog/2020-06-15-installing-rsync-on-windows/
 cover: /assets/rain-pexels-pixabay.jpg
 coverAlt: Cover image for the post. Blurred city scene through raindrop-covered window, creating a tranquil urban mood. Photo downloaded from Pixabay.
 ---

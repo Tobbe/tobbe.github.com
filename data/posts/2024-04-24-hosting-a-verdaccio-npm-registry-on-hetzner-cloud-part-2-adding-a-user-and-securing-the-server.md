@@ -1,7 +1,7 @@
 ---
 title: "Hosting a Verdaccio NPM Registry on Hetzner Cloud Part 2: Adding a User and Securing the Server"
 date: 2024-04-24 21:00:00
-canonicalUrl: https://tlundberg.com/blog/2024-04-24-hosting-a-verdaccio-npm-registry-on-hetzner-cloud-part-2-adding-a-user-and-securing-the-server
+canonicalUrl: https://tlundberg.com/blog/2024-04-24-hosting-a-verdaccio-npm-registry-on-hetzner-cloud-part-2-adding-a-user-and-securing-the-server/
 cover: /assets/server-technician-sammy-ayot-unsplash.webp
 coverAlt: Cover image for the post. Server technichan. Photo taken by Sammy Ayot.
 ---

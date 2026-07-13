@@ -1,7 +1,7 @@
 ---
 title: Visualizing your Prisma schema in a RedwoodJS project
 date: 2022-07-08
-canonicalUrl: https://tlundberg.com/blog/2022-07-08-visualizing-your-prisma-schema-in-a-redwoodjs-project
+canonicalUrl: https://tlundberg.com/blog/2022-07-08-visualizing-your-prisma-schema-in-a-redwoodjs-project/
 cover: /assets/prisma-big-erd.webp
 coverAlt: A big ER diagram of a Prisma schema
 ---

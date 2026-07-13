@@ -1,7 +1,7 @@
 ---
 title: Moving to hashnode from my custom Gatsby blog
 date: 2021-10-13
-canonicalUrl: https://tlundberg.com/blog/2021-10-13-moving-to-hashnode-from-my-custom-gatsby-blog
+canonicalUrl: https://tlundberg.com/blog/2021-10-13-moving-to-hashnode-from-my-custom-gatsby-blog/
 cover: /assets/movers-robinson-greig-unsplash.jpg
 coverAlt: Cover image for the post. Four movers preparing to load a large, framed item onto a truck. Photo taken by Robinson Greig.
 ---

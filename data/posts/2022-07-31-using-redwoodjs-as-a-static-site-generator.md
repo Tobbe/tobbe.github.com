@@ -2,7 +2,7 @@
 title: Using RedwoodJS as a Static Site Generator
 subtitle: Not because you should, but because you can
 date: 2022-07-10
-canonicalUrl: https://tlundberg.com/blog/2022-07-31-using-redwoodjs-as-a-static-site-generator
+canonicalUrl: https://tlundberg.com/blog/2022-07-31-using-redwoodjs-as-a-static-site-generator/
 cover: /assets/grayscale-building-ricardo-gomez-angel-unsplash.jpg
 coverAlt: Cover image for the post. Grayscale photo of a building. Photo taken by Ricardo Gomez Angel.
 ---
