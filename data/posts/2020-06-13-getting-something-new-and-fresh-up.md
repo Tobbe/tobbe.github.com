@@ -1,7 +1,7 @@
 ---
 title: Getting something new and fresh up
 date: 2020-06-13
-canonicalUrl: https://tlundberg.com/getting-something-new-and-fresh-up
+canonicalUrl: https://tlundberg.com/blog/2020-06-13-getting-something-new-and-fresh-up
 cover: /assets/rain-pexels-pixabay.jpg
 coverAlt: Cover image for the post. Blurred city scene through raindrop-covered window, creating a tranquil urban mood. Photo downloaded from Pixabay.
 ---

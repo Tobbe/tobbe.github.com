@@ -1,7 +1,7 @@
 ---
 title: Migrating data with prisma migrate
 date: 2021-11-28
-canonicalUrl: https://tlundberg.com/migrating-data-with-prisma-migrate
+canonicalUrl: https://tlundberg.com/blog/2021-11-28-migrating-data-with-prisma-migrate
 cover: /assets/prisma-andrey-novik-unsplash.jpg
 coverAlt: Cover image for the post. Glass prisma set on a table. Photo taken by Andrey Novik.
 ---

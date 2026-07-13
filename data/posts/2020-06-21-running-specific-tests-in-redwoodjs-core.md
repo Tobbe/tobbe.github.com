@@ -1,7 +1,7 @@
 ---
 title: Running specific tests in RedwoodJS core
 date: 2020-06-21
-canonicalUrl: https://tlundberg.com/running-specific-tests-in-redwoodjs-core
+canonicalUrl: https://tlundberg.com/blog/2020-06-21-running-specific-tests-in-redwoodjs-core
 cover: /assets/rain-pexels-pixabay.jpg
 coverAlt: Cover image for the post. Blurred city scene through raindrop-covered window, creating a tranquil urban mood. Photo downloaded from Pixabay.
 ---

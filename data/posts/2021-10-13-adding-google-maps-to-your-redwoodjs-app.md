@@ -2,7 +2,7 @@
 title: Adding Google Maps to your RedwoodJS App
 subtitle: And navigating the npm package jungle
 date: 2021-10-13
-canonicalUrl: https://tlundberg.com/adding-google-maps-to-your-redwoodjs-app
+canonicalUrl: https://tlundberg.com/blog/2021-10-13-adding-google-maps-to-your-redwoodjs-app
 cover: /assets/map-thomas-kinto-unsplash.jpg
 coverAlt: Cover image for the post. A German road map. Photo taken by Thomas Kinto.
 ---

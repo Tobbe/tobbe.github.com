@@ -1,7 +1,7 @@
 ---
 title: Switching to Another GraphQL Client in RedwoodJS
 date: 2021-01-18
-canonicalUrl: https://tlundberg.com/switching-to-another-graphql-client-in-redwoodjs
+canonicalUrl: https://tlundberg.com/blog/2021-01-18-switching-to-another-graphql-client-in-redwoodjs
 cover: /assets/net-pattern-armand-khoury-unsplash.jpg
 coverAlt: Cover image for the post. Abstract pattern kind of resembing a net. Photo taken by Armand Khoury.
 ---
