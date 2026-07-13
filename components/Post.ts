@@ -3,25 +3,10 @@ import { html } from "@mastrojs/mastro";
 import type { Html } from "@mastrojs/mastro";
 
 import { App } from "./App.ts";
-
-function getEnglishDate(date: Date) {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
-}
+import { PostCoverImage } from "./PostCoverImage.ts";
+import { PostMeta } from "./PostMeta.ts";
+import { PostNavLinks } from "./PostNavLinks.ts";
+import { PostSubtitle } from "./PostSubTitle.ts";
 
 const DID = "did:plc:irutxjhccx4xajwsurbjdq6f";
 
@@ -51,33 +36,6 @@ export const Post = (props: Props) => {
       />`
     : [];
 
-  const subtitle = props.subtitle ? html`<h2>${props.subtitle}</h2>` : null;
-  const postMeta = html`<div>
-    Last modified:
-    <time datetime="${props.lastModified.toISOString()}">
-      ${getEnglishDate(props.lastModified)}
-    </time>
-    &bull; Reading time: ${props.readingTimeMinutes} minutes
-  </div>`;
-  const cover = props.cover
-    ? html`<img src="${props.cover}" alt="${props.coverAlt ?? props.title}" />`
-    : null;
-
-  const linkToPreviousPost = props.previousPost
-    ? html`<span>
-        Newer post:
-        <a href="/blog/${props.previousPost.slug}/"
-          >${props.previousPost.meta.title}</a
-        >
-      </span>`
-    : null;
-  const linkToNextPost = props.nextPost
-    ? html`<span style="margin-left: auto; text-align: right;">
-        Older post:
-        <a href="/blog/${props.nextPost.slug}/">${props.nextPost.meta.title}</a>
-      </span>`
-    : null;
-
   return App({
     title: props.title,
     headerTags: [...canonicalUrl, ...siteStandardDocument],
@@ -87,13 +45,21 @@ export const Post = (props: Props) => {
       </header>
       <main>
         <h1>${props.title}</h1>
-        ${subtitle}${postMeta}${cover}${props.children}
+        ${PostSubtitle({ children: props.subtitle })}
+        ${PostMeta({
+          lastModified: props.lastModified,
+          readingTimeMinutes: props.readingTimeMinutes,
+        })}
+        ${PostCoverImage({
+          src: props.cover,
+          alt: props.coverAlt ?? props.title,
+        })}
+        ${props.children}
         <hr />
-        <section
-          style="display: flex; flex-wrap: wrap; justify-content: space-between;"
-        >
-          ${linkToPreviousPost}${linkToNextPost}
-        </section>
+        ${PostNavLinks({
+          previousPost: props.previousPost,
+          nextPost: props.nextPost,
+        })}
       </main>
     `,
   });
