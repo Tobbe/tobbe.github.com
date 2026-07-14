@@ -1,6 +1,8 @@
 ---
 title: Publish to Atmosphere
-date: 2026-07-11 21:36:00
+date: 2026-07-14 18:06:00
+cover: /assets/blue-sky-clouds-tatiana-reusche-unsplash.jpg
+coverAlt: Cover image for the post. A blue sky with clouds. Photo taken by Tatiana Reusche.
 ---
 
 I saw this blog post linked on Bluesky:
@@ -81,6 +83,20 @@ Atproto password.)
 Committed the `.well-known` directory, and made sure all my latest changes were
 live on https://tlundberg.com. I then ran the script again.
 
-Unfortunately https://site-validator.fly.dev showd that there was an issue with the published data.
-https://pdsls.dev/at://did:plc:irutxjhccx4xajwsurbjdq6f/site.standard.document/3kr34tt2222gs was helpful in debugging.
-https://atproto.at was even better. I could log in and delete the broken records. And then run the publish script again.
+Unfortunately https://site-validator.fly.dev showed that there was an issue with
+the published data.
+https://pdsls.dev/at://did:plc:irutxjhccx4xajwsurbjdq6f/site.standard.document/3kr34tt2222gs
+was helpful in debugging. https://atproto.at was even better. I could log in and
+delete the broken records. And then run the publish script again.
+
+With the initial new-line issue fixed, the site validator showed another issue.
+It couldn't find the expected file inside the `.well-known/` directory. After a
+quick scan through the GitHub action logs, I noticed that `.well-known/` was not
+being included in the uploaded artifact. Reading the
+[upload-pages-artifacts docs](https://github.com/actions/upload-pages-artifact#inputs-)
+I found the `include-hidden-files` option. It's `false` by default and that
+makes the action ignore file and directories starting with a dot (`.`). Setting
+that to `true` fixed the `.well-known/` issue. And with that
+https://site-validator.fly.dev marked my blog posts as ✅ Valid.
+
+<span style="font-size: 80%">(Cover photo by <a href="https://unsplash.com/@reusche?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tatiana Reusche</a> on <a href="https://unsplash.com/photos/a-blue-sky-with-white-clouds-and-a-plane-in-the-distance-YJlizOF3ZS0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</span>
