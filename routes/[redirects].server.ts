@@ -13,6 +13,9 @@ function trimQuotes(str?: string) {
 export const GET = async (req: Request) => {
   const { redirects: partialSlug } = getParams(req);
 
+  console.log("typeof partialSlug", typeof partialSlug);
+  console.log("partialSlug >" + partialSlug + "<");
+
   if (!partialSlug) {
     throw new Error("500 No slug provided");
   }

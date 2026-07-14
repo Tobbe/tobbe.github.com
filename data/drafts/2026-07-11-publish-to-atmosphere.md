@@ -24,6 +24,36 @@ I wish there was a way to preview what the Publication card will look like on
 Bsky and mu.social. Especially with the colors. For now I just used some of the
 colors from the OK.css css variables.
 
+https://standard.site/docs/introduction/#core-lexicons is a good reference for
+the standard.site lexicons. For example, I was a bit unsure what to use for
+`pubUrl`. I first entered `https://tlundberg.com` as that's the main page where
+I list all blog posts. But reading the lexicon definition, I saw this:
+
+> The canonical document URL is formed by combining this value with the document
+> path.
+>
+> - https://standard.site/docs/lexicons/publication/#required-properties
+
+Reading that, I updated `pubUrl` to `https://tlundberg.com/blog/`. But since I
+didn't actually have that page yet, I had to also create it. Which I think is a
+good idea anyway. So this was a good :poke: to do so. To get something basic up
+I just copied `routes/index.server.ts` to `routes/blog/index.server.ts`. And
+with that `https://tlundberg.com/blog/` was live.
+
+At this point I also decided it was time to dive into Mastro's source code. I
+didn't really feel confident with my current understanding of how things
+_really_ worked. And good thing I did! Reading the code for
+`createOrUpdateStandardSite` I noticed that it appended `index.html` for
+pathnames ending with `/`. So I **also** had to add some kind of route matching
+for `/blog/index.html`. This isn't explicitly documented at
+https://mastrojs.github.io/docs/routing/#files-and-folders, but the first thing
+I tried, adding a `routes/blog/index.html.server.ts` file, worked. I love it
+when frameworks follow predictable patterns ❤️
+
+To reduce duplicated code, I moved it all to this new `index.html.server.ts`
+file. And then updated `routes/blog/index.server.ts` to just do
+`export { GET } from "./index.html.server.ts";`.
+
 One thing that was a bit less well covered in the blog post and README was the
 update needed to the blog posts themselves. They need to set a special
 `<link rel="site.standard.document" [...]>` tag in their `<head>`. There's a
@@ -38,10 +68,12 @@ own `<link>` tags.
 I solved the `<link>` tag issue by updating `App` to accept generic extra header
 tags via a `headerTags` prop. For `agent.did` I assume that's just my own
 personal DID. The blog post says "The DID (Decentralized Identifier) uniquely
-identifies your user". My DID is "`did:plc:rutxjhccx4xajwsurbjdq6f`". But I'm
+identifies your user". My DID is "`did:plc:rutxjhccx4xajwsurbjdq6f`". But I was
 still not sure if I should specify the full thing in the `<link>`, or if I'm
 suposed to skip the `did:` part or maybe even the full `did:plc` prefix as it's
-always the same. I'm guessing I'm supposed to specify the full thing.
+always the same. I guessed I was supposed to specify the full thing, and it
+seems to have worked 🙂
 
 After having the Post updates figured out I just ran the publish script locally
-with `node publishToAtmosphere.ts`.
+with `node --env-file=.env publishToAtmosphere.ts`. (.env is where I store my
+Atproto password.)

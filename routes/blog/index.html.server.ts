@@ -1,6 +1,6 @@
 import { html, htmlToResponse } from "@mastrojs/mastro";
-import { App } from "../components/App.ts";
-import { getSortedPosts } from "../lib/posts.ts";
+import { App } from "../../components/App.ts";
+import { getSortedPosts } from "../../lib/posts.ts";
 
 function dateOnly(stringDate: string) {
   const date = new Date(stringDate);

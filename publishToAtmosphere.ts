@@ -3,9 +3,9 @@ import { createOrUpdateStandardSite } from "@mastrojs/atproto";
 import type { Publication } from "@mastrojs/atproto";
 import { readMarkdownFiles } from "@mastrojs/markdown";
 
-const identifier = "your.bsky.social";
+const identifier = "tobbe.dev";
 const password = process.env.ATPROTO_PASSWORD;
-const pubUrl = new URL("https://tlundberg.com");
+const pubUrl = new URL("https://tlundberg.com/blog/");
 
 const publication: Publication = {
   url: pubUrl,
@@ -25,13 +25,21 @@ const publication: Publication = {
   },
 };
 
-const posts = await readMarkdownFiles<{ title: string; date: string }>(
-  "data/posts/*.md",
-);
+interface PostMeta {
+  title: string;
+  date: string;
+  [index: string]: string;
+}
+
+const posts = await readMarkdownFiles<PostMeta>("data/posts/*.md");
 const docs = posts.map((p) => ({
   title: p.meta.title,
   publishedAt: new Date(p.meta.date),
   url: new URL(p.slug + "/", pubUrl),
 }));
 
-await createOrUpdateStandardSite({ identifier, password }, publication, docs);
+console.log("pub", publication);
+
+console.log("docs", docs);
+
+// await createOrUpdateStandardSite({ identifier, password }, publication, docs);
