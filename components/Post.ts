@@ -6,7 +6,7 @@ import { App } from "./App.ts";
 import { PostCoverImage } from "./PostCoverImage.ts";
 import { PostMeta } from "./PostMeta.ts";
 import { PostNavLinks } from "./PostNavLinks.ts";
-import { PostSubtitle } from "./PostSubTitle.ts";
+import { PostSubtitle } from "./PostSubtitle.ts";
 
 const DID = "did:plc:irutxjhccx4xajwsurbjdq6f";
 
