@@ -5,7 +5,8 @@ cover: /assets/blue-sky-clouds-tatiana-reusche-unsplash.jpg
 coverAlt: Cover image for the post. A blue sky with clouds. Photo taken by Tatiana Reusche.
 ---
 
-I saw this blog post linked on Bluesky:
+I wanted to publish my blog posts to the Atmosphere. When looking for more info
+on the subject I saw this blog post linked on Bluesky:
 https://mastrojs.github.io/blog/2026-06-05-how-to-add-standard-site-support-to-your-website/
 and as I've said before, that's actually what drove me to look more into Mastro.
 
@@ -34,7 +35,7 @@ I list all blog posts. But reading the lexicon definition, I saw this:
 > The canonical document URL is formed by combining this value with the document
 > path.
 >
-> - https://standard.site/docs/lexicons/publication/#required-properties
+> – https://standard.site/docs/lexicons/publication/#required-properties
 
 Reading that, I updated `pubUrl` to `https://tlundberg.com/blog/`. But since I
 didn't actually have that page yet, I had to also create it. Which I think is a
@@ -75,7 +76,7 @@ tags via a `headerTags` prop. For `agent.did` I assume that's just my own
 personal DID. The blog post says "The DID (Decentralized Identifier) uniquely
 identifies your user". My DID is "`did:plc:rutxjhccx4xajwsurbjdq6f`". But I was
 still not sure if I should specify the full thing in the `<link>`, or if I'm
-suposed to skip the `did:` part or maybe even the full `did:plc` prefix as it's
+supposed to skip the `did:` part or maybe even the full `did:plc` prefix as it's
 always the same. I guessed I was supposed to specify the full thing, and it
 seems to have worked 🙂
 
