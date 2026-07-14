@@ -1,5 +1,5 @@
 ---
-title: Publish to Atmosphere
+title: Publish to the Atmosphere
 date: 2026-07-14 18:06:00
 cover: /assets/blue-sky-clouds-tatiana-reusche-unsplash.jpg
 coverAlt: Cover image for the post. A blue sky with clouds. Photo taken by Tatiana Reusche.
@@ -53,8 +53,11 @@ I tried, adding a `routes/blog/index.html.server.ts` file, worked. I love it
 when frameworks follow predictable patterns ❤️
 
 To reduce duplicated code, I moved it all to this new `index.html.server.ts`
-file. And then updated `routes/blog/index.server.ts` to just do
-`export { GET } from "./index.html.server.ts";`.
+file. And then updated `routes/blog/index.server.ts` to just look like this:
+```ts
+// routes/blog/index.server.ts
+export { GET } from "./index.html.server.ts";
+```
 
 One thing that was a bit less well covered in the blog post and README was the
 update needed to the blog posts themselves. They need to set a special
@@ -86,7 +89,7 @@ live on https://tlundberg.com. I then ran the script again.
 Unfortunately https://site-validator.fly.dev showed that there was an issue with
 the published data.
 https://pdsls.dev/at://did:plc:irutxjhccx4xajwsurbjdq6f/site.standard.document/3kr34tt2222gs
-was helpful in debugging. https://atproto.at was even better. I could log in and
+was helpful in debugging. Going there I could see that there was a new-line issue with the record. https://atproto.at was even better for debugging. I could see the new-line issue there as well, I could also log in and
 delete the broken records. And then run the publish script again.
 
 With the initial new-line issue fixed, the site validator showed another issue.
