@@ -77,3 +77,10 @@ seems to have worked 🙂
 After having the Post updates figured out I just ran the publish script locally
 with `node --env-file=.env publishToAtmosphere.ts`. (.env is where I store my
 Atproto password.)
+
+Committed the `.well-known` directory, and made sure all my latest changes were
+live on https://tlundberg.com. I then ran the script again.
+
+Unfortunately https://site-validator.fly.dev showd that there was an issue with the published data.
+https://pdsls.dev/at://did:plc:irutxjhccx4xajwsurbjdq6f/site.standard.document/3kr34tt2222gs was helpful in debugging.
+https://atproto.at was even better. I could log in and delete the broken records. And then run the publish script again.
