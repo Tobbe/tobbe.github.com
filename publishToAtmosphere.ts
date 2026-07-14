@@ -38,8 +38,4 @@ const docs = posts.map((p) => ({
   url: new URL(p.slug + "/", pubUrl),
 }));
 
-console.log("pub", publication);
-
-console.log("docs", docs);
-
-// await createOrUpdateStandardSite({ identifier, password }, publication, docs);
+await createOrUpdateStandardSite({ identifier, password }, publication, docs);
