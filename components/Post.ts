@@ -16,25 +16,24 @@ interface Props {
   subtitle?: string;
   cover?: string;
   coverAlt?: string;
+  canonicalUrl: string;
   readingTimeMinutes: number;
   lastModified: Date;
   previousPost?: { slug: string; meta: { title: string } };
   nextPost?: { slug: string; meta: { title: string } };
-  canonicalUrl?: string;
 }
 
 export const Post = (props: Props) => {
-  const canonicalUrl = props.canonicalUrl
-    ? html`<link rel="canonical" href="${props.canonicalUrl}" />`
-    : [];
+  const canonicalUrl = html`<link
+    rel="canonical"
+    href="${props.canonicalUrl}"
+  />`;
 
-  const url = props.canonicalUrl ? new URL(props.canonicalUrl) : null;
-  const siteStandardDocument = url
-    ? html`<link
-        rel="site.standard.document"
-        href=${`at://${DID}/site.standard.document/${rkeyFromUrl(url)}`}
-      />`
-    : [];
+  const url = new URL(props.canonicalUrl);
+  const siteStandardDocument = html`<link
+    rel="site.standard.document"
+    href=${`at://${DID}/site.standard.document/${rkeyFromUrl(url)}`}
+  />`;
 
   return App({
     title: props.title,

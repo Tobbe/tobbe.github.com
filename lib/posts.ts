@@ -90,6 +90,8 @@ export async function renderPost(dir: string, slug?: string) {
   const postIndex = posts.findIndex((post) => post.slug === slug);
   const previousPost = postIndex > 0 ? posts[postIndex - 1] : undefined;
   const nextPost = posts.at(postIndex + 1);
+  const canonicalUrl =
+    postMeta.canonicalUrl ?? `https://tlundberg.com/blog/${slug}/`;
 
   return htmlToResponse(
     Post({
@@ -97,7 +99,7 @@ export async function renderPost(dir: string, slug?: string) {
       subtitle: postMeta.subtitle,
       cover: postMeta.cover,
       coverAlt: postMeta.coverAlt,
-      canonicalUrl: postMeta.canonicalUrl,
+      canonicalUrl,
       readingTimeMinutes: Math.round(minutes),
       lastModified: fileStats.mtime,
       previousPost,
