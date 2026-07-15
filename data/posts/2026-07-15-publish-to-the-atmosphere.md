@@ -1,6 +1,6 @@
 ---
 title: Publish to the Atmosphere
-date: 2026-07-14 18:06:00
+date: 2026-07-15 18:06:00
 cover: /assets/blue-sky-clouds-tatiana-reusche-unsplash.jpg
 coverAlt: Cover image for the post. A blue sky with clouds. Photo taken by Tatiana Reusche.
 ---
@@ -99,8 +99,17 @@ quick scan through the GitHub action logs, I noticed that `.well-known/` was not
 being included in the uploaded artifact. Reading the
 [upload-pages-artifacts docs](https://github.com/actions/upload-pages-artifact#inputs-)
 I found the `include-hidden-files` option. It's `false` by default and that
-makes the action ignore file and directories starting with a dot (`.`). Setting
+makes the action ignore files and directories starting with a dot (`.`). Setting
 that to `true` fixed the `.well-known/` issue. And with that
 https://site-validator.fly.dev marked my blog posts as ✅ Valid.
+
+I could have stopped there. But scrolling down to the bottom of the validation
+page, I saw this warning
+
+![Document path format: Docment paths should normally have a leading slash. Publication URL format: Publication URLs should normally not have a trailing slash.](/assets/standard-site-warning.png)
+
+And I really wanted to fix those warnings. The first one required a patch to
+`@mastrojs/atproto` to not cut off the leading slash when constructing documents
+to publish.
 
 <span style="font-size: 80%">(Cover photo by <a href="https://unsplash.com/@reusche?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tatiana Reusche</a> on <a href="https://unsplash.com/photos/a-blue-sky-with-white-clouds-and-a-plane-in-the-distance-YJlizOF3ZS0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</span>
