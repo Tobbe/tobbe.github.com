@@ -55,6 +55,7 @@ when frameworks follow predictable patterns ❤️
 
 To reduce duplicated code, I moved it all to this new `index.html.server.ts`
 file. And then updated `routes/blog/index.server.ts` to just look like this:
+
 ```ts
 // routes/blog/index.server.ts
 export { GET } from "./index.html.server.ts";
@@ -90,8 +91,10 @@ live on https://tlundberg.com. I then ran the script again.
 Unfortunately https://site-validator.fly.dev showed that there was an issue with
 the published data.
 https://pdsls.dev/at://did:plc:irutxjhccx4xajwsurbjdq6f/site.standard.document/3kr34tt2222gs
-was helpful in debugging. Going there I could see that there was a new-line issue with the record. https://atproto.at was even better for debugging. I could see the new-line issue there as well, I could also log in and
-delete the broken records. And then run the publish script again.
+was helpful in debugging. Going there I could see that there was a new-line
+issue with the record. https://atproto.at was even better for debugging. I could
+see the new-line issue there as well, I could also log in and delete the broken
+records. And then run the publish script again.
 
 With the initial new-line issue fixed, the site validator showed another issue.
 It couldn't find the expected file inside the `.well-known/` directory. After a
@@ -103,13 +106,39 @@ makes the action ignore files and directories starting with a dot (`.`). Setting
 that to `true` fixed the `.well-known/` issue. And with that
 https://site-validator.fly.dev marked my blog posts as ✅ Valid.
 
-I could have stopped there. But scrolling down to the bottom of the validation
-page, I saw this warning
+I was very happy to have it validate, but scrolling down to the bottom of the
+validation page, I saw this warning
 
 ![Document path format: Docment paths should normally have a leading slash. Publication URL format: Publication URLs should normally not have a trailing slash.](/assets/standard-site-warning.png)
 
-And I really wanted to fix those warnings. The first one required a patch to
-`@mastrojs/atproto` to not cut off the leading slash when constructing documents
-to publish.
+I want to fix that, but the platform and the framework I'm using is fighting me.
+I first wanted to fix the "Document paths should normally have a leading slash"
+issue. I dove into the `@mastrojs/atproto` source and found that it's a really
+easy fix. Just have to add a `- 1` to a `.slice()` call. So I did that, and
+ended up with a document path like `/2026-07-15-publish-to-the-atmosphere/`. The
+other issue to tackle was the trailing slash on the publication URL. The
+publication url is set in my local `publishToAtmosphere.ts` script as `pubUrl`.
+
+```ts
+// publishToAtmosphere.ts
+const pubUrl = new URL("https://tlundberg.com/blog/");
+```
+
+I tried just removing the trailing slash from the string passed to `new URL()`,
+but that crashed inside some `@astrojs/atproto` code with
+`Error: EISDIR: illegal operation on a directory, read`. I could once again dive
+into the `@astrojs/atproto` source and find the root cause, but there's another
+issue. GitHub Pages. They don't really support directories without a trailing
+slash. I have an upcomming blog post about this as well... So I could leave it
+at just one warning. But then I'd have the publication URL be
+`https://tlundberg.com/blog/` and the document path be
+`/2026-07-15-publish-to-the-atmosphere/`. Combining those you'd end up with a 
+URL with double slashes
+(`https://tlundberg.com/blog//2026-07-15-publish-to-the-atmosphere/`). It works,
+but I just felt that's worse than having the two warnings. So for now I decided
+to roll back the leading slash change and just live with the two warnings. If I
+move to a different hosting provider that's a bit more flexible I might revisit.
+Also, who knows? Maybe the validator is wrong, or the spec is too strict, and
+this ends up being a non-issue.
 
 <span style="font-size: 80%">(Cover photo by <a href="https://unsplash.com/@reusche?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tatiana Reusche</a> on <a href="https://unsplash.com/photos/a-blue-sky-with-white-clouds-and-a-plane-in-the-distance-YJlizOF3ZS0?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>)</span>
